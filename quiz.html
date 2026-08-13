@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz da Copa do Mundo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #0d1b2a 0%, #1b2838 50%, #1a1a2e 100%);
+      min-height: 100vh;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: rgba(13, 27, 42, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid rgba(245, 166, 35, 0.3);
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .nav-brand .trophy-icon {
+      font-size: 2rem;
+    }
+
+    .nav-brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nav-brand-text span:first-child {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #f5a623;
+    }
+
+    .nav-brand-text .brand-sub {
+      font-size: 0.7rem;
+      color: #8899aa;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .back-btn {
+      background: linear-gradient(135deg, #f5a623 0%, #e09100 100%);
+      color: #0d1b2a;
+      padding: 0.6rem 1.5rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .back-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(245, 166, 35, 0.4);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 8rem 2rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at center, rgba(245, 166, 35, 0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #f5a623 0%, #e09100 100%);
+      color: #0d1b2a;
+      padding: 0.5rem 1.5rem;
+      border-radius: 25px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .hero h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      line-height: 1.1;
+    }
+
+    .hero h1 .highlight {
+      background: linear-gradient(135deg, #f5a623 0%, #ffcc00 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-size: 1.2rem;
+      color: #8899aa;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      line-height: 1.6;
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-top: 2rem;
+    }
+
+    .hero-stat {
+      text-align: center;
+    }
+
+    .hero-stat .number {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #f5a623;
+    }
+
+    .hero-stat .label {
+      font-size: 0.85rem;
+      color: #8899aa;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Quiz Container */
+    .quiz-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .quiz-progress {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .progress-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .progress-dot.active {
+      background: #f5a623;
+      transform: scale(1.2);
+    }
+
+    .progress-dot.correct {
+      background: #27ae60;
+    }
+
+    .progress-dot.wrong {
+      background: #e74c3c;
+    }
+
+    /* Question Card */
+    .question-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 2.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      animation: slideIn 0.5s ease;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .question-number {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
+      color: #f5a623;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 0.5rem;
+    }
+
+    .question-text {
+      font-size: 1.4rem;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      line-height: 1.5;
+    }
+
+    .options-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .option-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 2px solid rgba(255, 255, 255, 0.15);
+      border-radius: 15px;
+      padding: 1.2rem 1.5rem;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .option-btn:hover:not(:disabled) {
+      background: rgba(245, 166, 35, 0.15);
+      border-color: #f5a623;
+      transform: translateX(10px);
+    }
+
+    .option-btn:disabled {
+      cursor: not-allowed;
+    }
+
+    .option-letter {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .option-btn.correct {
+      background: rgba(39, 174, 96, 0.3);
+      border-color: #27ae60;
+    }
+
+    .option-btn.correct .option-letter {
+      background: #27ae60;
+    }
+
+    .option-btn.wrong {
+      background: rgba(231, 76, 60, 0.3);
+      border-color: #e74c3c;
+    }
+
+    .option-btn.wrong .option-letter {
+      background: #e74c3c;
+    }
+
+    .feedback {
+      margin-top: 1.5rem;
+      padding: 1rem 1.5rem;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      display: none;
+    }
+
+    .feedback.show {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .feedback.correct {
+      background: rgba(39, 174, 96, 0.2);
+      border: 1px solid #27ae60;
+      color: #27ae60;
+    }
+
+    .feedback.wrong {
+      background: rgba(231, 76, 60, 0.2);
+      border: 1px solid #e74c3c;
+      color: #e74c3c;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .next-btn {
+      background: linear-gradient(135deg, #f5a623 0%, #e09100 100%);
+      color: #0d1b2a;
+      border: none;
+      padding: 1rem 2.5rem;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 2rem;
+      display: none;
+      transition: all 0.3s ease;
+    }
+
+    .next-btn.show {
+      display: inline-block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .next-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(245, 166, 35, 0.4);
+    }
+
+    /* Result Screen */
+    .result-screen {
+      display: none;
+      text-align: center;
+      padding: 3rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      animation: slideIn 0.5s ease;
+    }
+
+    .result-screen.show {
+      display: block;
+    }
+
+    .result-icon {
+      font-size: 5rem;
+      margin-bottom: 1.5rem;
+      animation: bounce 1s ease infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    .result-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .result-score {
+      font-size: 4rem;
+      font-weight: 700;
+      color: #f5a623;
+      margin-bottom: 0.5rem;
+    }
+
+    .result-message {
+      font-size: 1.2rem;
+      color: #8899aa;
+      margin-bottom: 2rem;
+    }
+
+    .result-stats {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-bottom: 2rem;
+    }
+
+    .result-stat {
+      text-align: center;
+    }
+
+    .result-stat .value {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    .result-stat .label {
+      font-size: 0.85rem;
+      color: #8899aa;
+      text-transform: uppercase;
+    }
+
+    .result-stat.correct .value { color: #27ae60; }
+    .result-stat.wrong .value { color: #e74c3c; }
+
+    .restart-btn {
+      background: linear-gradient(135deg, #f5a623 0%, #e09100 100%);
+      color: #0d1b2a;
+      border: none;
+      padding: 1rem 3rem;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .restart-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(245, 166, 35, 0.4);
+    }
+
+    /* Footer */
+    .footer {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 2rem;
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    .footer p {
+      color: #8899aa;
+      font-size: 0.9rem;
+    }
+
+    /* Particles */
+    .particle {
+      position: fixed;
+      width: 4px;
+      height: 4px;
+      background: rgba(245, 166, 35, 0.3);
+      border-radius: 50%;
+      animation: float 15s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) rotate(720deg);
+        opacity: 0;
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero-stats {
+        gap: 1.5rem;
+      }
+
+      .hero-stat .number {
+        font-size: 2rem;
+      }
+
+      .question-card {
+        padding: 1.5rem;
+      }
+
+      .question-text {
+        font-size: 1.2rem;
+      }
+
+      .result-stats {
+        gap: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Particles -->
+  <div class="particle" style="left:10%;animation-delay:0s"></div>
+  <div class="particle" style="left:20%;animation-delay:2s"></div>
+  <div class="particle" style="left:30%;animation-delay:4s"></div>
+  <div class="particle" style="left:40%;animation-delay:1s"></div>
+  <div class="particle" style="left:50%;animation-delay:3s"></div>
+  <div class="particle" style="left:60%;animation-delay:5s"></div>
+  <div class="particle" style="left:70%;animation-delay:1.5s"></div>
+  <div class="particle" style="left:80%;animation-delay:3.5s"></div>
+  <div class="particle" style="left:90%;animation-delay:2.5s"></div>
+  <div class="particle" style="left:15%;animation-delay:4.5s"></div>
+  <div class="particle" style="left:25%;animation-delay:0.5s"></div>
+  <div class="particle" style="left:35%;animation-delay:2.8s"></div>
+  <div class="particle" style="left:45%;animation-delay:1.2s"></div>
+  <div class="particle" style="left:55%;animation-delay:3.8s"></div>
+  <div class="particle" style="left:65%;animation-delay:0.8s"></div>
+  <div class="particle" style="left:75%;animation-delay:2.2s"></div>
+  <div class="particle" style="left:85%;animation-delay:4.2s"></div>
+  <div class="particle" style="left:95%;animation-delay:1.8s"></div>
+  <div class="particle" style="left:5%;animation-delay:3.2s"></div>
+  <div class="particle" style="left:48%;animation-delay:0.3s"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-brand">
+      <span class="trophy-icon">🏆</span>
+      <div class="nav-brand-text">
+        <span>Copa do Mundo</span>
+        <span class="brand-sub">Quiz Interativo</span>
+      </div>
+    </a>
+    <a href="index.html" class="back-btn">← Voltar ao Site</a>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-badge">⚽ Teste seus Conhecimentos</div>
+    <h1>Quiz da <span class="highlight">Copa do Mundo</span></h1>
+    <p class="hero-subtitle">Quantos dessas perguntas sobre a história da Copa do Mundo você consegue acertar? Prepare-se para reviver os maiores momentos do futebol!</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="number">5</div>
+        <div class="label">Perguntas</div>
+      </div>
+      <div class="hero-stat">
+        <div class="number">100</div>
+        <div class="label">Pontos por Acerto</div>
+      </div>
+      <div class="hero-stat">
+        <div class="number">500</div>
+        <div class="label">Pontuação Máxima</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quiz Container -->
+  <div class="quiz-container">
+    <!-- Progress -->
+    <div class="quiz-progress" id="quizProgress">
+      <div class="progress-dot active" data-question="0"></div>
+      <div class="progress-dot" data-question="1"></div>
+      <div class="progress-dot" data-question="2"></div>
+      <div class="progress-dot" data-question="3"></div>
+      <div class="progress-dot" data-question="4"></div>
+    </div>
+
+    <!-- Question Card -->
+    <div class="question-card" id="questionCard">
+      <div class="question-number" id="questionNumber">Pergunta 1 de 5</div>
+      <p class="question-text" id="questionText"></p>
+      <div class="options-grid" id="optionsGrid"></div>
+      <div class="feedback" id="feedback"></div>
+      <button class="next-btn" id="nextBtn">Próxima Pergunta →</button>
+    </div>
+
+    <!-- Result Screen -->
+    <div class="result-screen" id="resultScreen">
+      <div class="result-icon" id="resultIcon">🏆</div>
+      <h2 class="result-title" id="resultTitle">Parabéns!</h2>
+      <div class="result-score" id="resultScore">0</div>
+      <p class="result-message" id="resultMessage">Sua pontuação</p>
+      <div class="result-stats">
+        <div class="result-stat correct">
+          <div class="value" id="correctCount">0</div>
+          <div class="label">Acertos</div>
+        </div>
+        <div class="result-stat wrong">
+          <div class="value" id="wrongCount">0</div>
+          <div class="label">Erros</div>
+        </div>
+      </div>
+      <button class="restart-btn" id="restartBtn">🔄 Tentar Novamente</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>🏆 Quiz da Copa do Mundo — Projeto educacional sobre a história do futebol mundial</p>
+  </footer>
+
+  <script>
+    const questions = [
+      {
+        question: "Em que ano foi realizada a primeira Copa do Mundo e qual país foi o campeão?",
+        options: [
+          "1926 — Brasil",
+          "1930 — Uruguai",
+          "1934 — Itália",
+          "1930 — Argentina"
+        ],
+        correct: 1,
+        explanation: "A primeira Copa do Mundo foi realizada no Uruguai em 1930, e o Uruguai venceu a Argentina na final por 4 a 2, tornando-se o primeiro campeão mundial."
+      },
+      {
+        question: "Qual é o único país que participou de todas as edições da Copa do Mundo desde 1930?",
+        options: [
+          "Alemanha",
+          "Argentina",
+          "Itália",
+          "Brasil"
+        ],
+        correct: 3,
+        explanation: "O Brasil é o único país que participou de todas as Copas do Mundo desde a primeira edição em 1930, nunca tendo se classificado para disputar o torneio."
+      },
+      {
+        question: "Quem marcou o 'Gol do Século' na Copa de 1986 no México?",
+        options: [
+          "Pelé",
+          "Diego Maradona",
+          "Zinedine Zidane",
+          "Lionel Messi"
+        ],
+        correct: 1,
+        explanation: "Diego Maradona marcou o famoso 'Gol do Século' contra a Inglaterra nas quartas de final da Copa de 1986, driblando cinco jogadores e o goleiro."
+      },
+      {
+        question: "Qual foi o placar da final da Copa de 2022 entre Argentina e França?",
+        options: [
+          "Argentina 3 × 2 França",
+          "Argentina 2 × 1 França",
+          "Argentina 3 × 3 França (4-2 pênaltis)",
+          "Argentina 4 × 2 França"
+        ],
+        correct: 2,
+        explanation: "A final de 2022 foi considerada a maior da história, com 6 gols. A Argentina venceu nos pênaltis por 4 a 2 após o empate em 3 a 3 nos 120 minutos."
+      },
+      {
+        question: "Quantos títulos mundiais o Brasil possui, sendo o maior campeão da história?",
+        options: [
+          "3 títulos",
+          "4 títulos",
+          "5 títulos",
+          "6 títulos"
+        ],
+        correct: 2,
+        explanation: "O Brasil é o maior campeão da história com 5 títulos mundiais, conquistados em 1958, 1962, 1970, 1994 e 2002."
+      }
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+    let correctAnswers = 0;
+    let wrongAnswers = 0;
+    let answered = false;
+
+    const questionCard = document.getElementById('questionCard');
+    const questionNumber = document.getElementById('questionNumber');
+    const questionText = document.getElementById('questionText');
+    const optionsGrid = document.getElementById('optionsGrid');
+    const feedback = document.getElementById('feedback');
+    const nextBtn = document.getElementById('nextBtn');
+    const resultScreen = document.getElementById('resultScreen');
+    const progressDots = document.querySelectorAll('.progress-dot');
+
+    function loadQuestion() {
+      answered = false;
+      const q = questions[currentQuestion];
+      
+      questionNumber.textContent = `Pergunta ${currentQuestion + 1} de 5`;
+      questionText.textContent = q.question;
+      
+      optionsGrid.innerHTML = '';
+      q.options.forEach((option, index) => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.innerHTML = `
+          <span class="option-letter">${String.fromCharCode(65 + index)}</span>
+          <span>${option}</span>
+        `;
+        btn.onclick = () => checkAnswer(index);
+        optionsGrid.appendChild(btn);
+      });
+
+      feedback.className = 'feedback';
+      feedback.textContent = '';
+      nextBtn.className = 'next-btn';
+
+      // Update progress
+      progressDots.forEach((dot, index) => {
+        dot.className = 'progress-dot';
+        if (index === currentQuestion) {
+          dot.classList.add('active');
+        }
+      });
+    }
+
+    function checkAnswer(selectedIndex) {
+      if (answered) return;
+      answered = true;
+
+      const q = questions[currentQuestion];
+      const options = optionsGrid.querySelectorAll('.option-btn');
+      
+      options.forEach((btn, index) => {
+        btn.disabled = true;
+        if (index === q.correct) {
+          btn.classList.add('correct');
+        }
+        if (index === selectedIndex && index !== q.correct) {
+          btn.classList.add('wrong');
+        }
+      });
+
+      if (selectedIndex === q.correct) {
+        score += 100;
+        correctAnswers++;
+        feedback.className = 'feedback correct show';
+        feedback.innerHTML = `✅ Correto! ${q.explanation}`;
+        progressDots[currentQuestion].classList.add('correct');
+      } else {
+        wrongAnswers++;
+        feedback.className = 'feedback wrong show';
+        feedback.innerHTML = `❌ Errado! ${q.explanation}`;
+        progressDots[currentQuestion].classList.add('wrong');
+      }
+
+      nextBtn.className = 'next-btn show';
+      if (currentQuestion === questions.length - 1) {
+        nextBtn.textContent = 'Ver Resultado →';
+      }
+    }
+
+    function nextQuestion() {
+      currentQuestion++;
+      if (currentQuestion >= questions.length) {
+        showResult();
+      } else {
+        loadQuestion();
+      }
+    }
+
+    function showResult() {
+      questionCard.style.display = 'none';
+      document.querySelector('.quiz-progress').style.display = 'none';
+      resultScreen.classList.add('show');
+
+      document.getElementById('resultScore').textContent = score;
+      document.getElementById('correctCount').textContent = correctAnswers;
+      document.getElementById('wrongCount').textContent = wrongAnswers;
+
+      const percentage = (correctAnswers / questions.length) * 100;
+      const resultIcon = document.getElementById('resultIcon');
+      const resultTitle = document.getElementById('resultTitle');
+      const resultMessage = document.getElementById('resultMessage');
+
+      if (percentage === 100) {
+        resultIcon.textContent = '🏆';
+        resultTitle.textContent = 'Perfeito!';
+        resultMessage.textContent = 'Você é um verdadeiro expert em Copas do Mundo!';
+      } else if (percentage >= 60) {
+        resultIcon.textContent = '⚽';
+        resultTitle.textContent = 'Muito Bem!';
+        resultMessage.textContent = 'Você conhece bem a história da Copa do Mundo!';
+      } else {
+        resultIcon.textContent = '📚';
+        resultTitle.textContent = 'Continue Estudando!';
+        resultMessage.textContent = 'Explore mais sobre a história das Copas do Mundo!';
+      }
+    }
+
+    function restartQuiz() {
+      currentQuestion = 0;
+      score = 0;
+      correctAnswers = 0;
+      wrongAnswers = 0;
+      
+      questionCard.style.display = 'block';
+      document.querySelector('.quiz-progress').style.display = 'flex';
+      resultScreen.classList.remove('show');
+      
+      loadQuestion();
+    }
+
+    nextBtn.onclick = nextQuestion;
+    document.getElementById('restartBtn').onclick = restartQuiz;
+
+    // Initialize
+    loadQuestion();
+  </script>
+</body>
+</html>
