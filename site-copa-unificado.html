@@ -1,0 +1,4124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Copa do Mundo de Futebol - Historia Completa</title>
+  <style>
+ 
+
+:root {
+  --primary: #1a1a2e;
+  --secondary: #16213e;
+  --accent: #e94560;
+  --gold: #f5a623;
+  --gold-light: #ffd700;
+  --white: #ffffff;
+  --light-gray: #f0f0f0;
+  --dark-gray: #2c2c2c;
+  --text: #333333;
+  --text-light: #666666;
+  --gradient-gold: linear-gradient(135deg, #f5a623, #ffd700, #f5a623);
+  --gradient-dark: linear-gradient(135deg, #1a1a2e, #16213e);
+  --shadow: 0 4px 20px rgba(0,0,0,0.15);
+  --shadow-hover: 0 8px 40px rgba(0,0,0,0.25);
+  --radius: 12px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  color: var(--text);
+  background: var(--light-gray);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* ========== HEADER / NAVBAR - ESTILO CLÁSSICO ========== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: linear-gradient(180deg, #0a0a1a 0%, #1a1a2e 100%);
+  padding: 0;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+  border-bottom: 3px solid var(--gold);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.navbar.scrolled {
+  height: auto;
+  border-bottom: 2px solid var(--gold);
+}
+
+/* Top bar estilo clássico */
+.nav-top-bar {
+  background: linear-gradient(90deg, #0d0d2b, #1a1a3e, #0d0d2b);
+  padding: 6px 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(245, 166, 35, 0.2);
+}
+
+.nav-top-bar .top-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.nav-top-bar .top-info span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-top-bar .top-info .dot {
+  width: 4px;
+  height: 4px;
+  background: var(--gold);
+  border-radius: 50%;
+}
+
+/* Main nav */
+.nav-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 60px;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--white);
+}
+
+.nav-brand .trophy-icon {
+  font-size: 2rem;
+  filter: drop-shadow(0 0 10px rgba(245, 166, 35, 0.5));
+}
+
+.nav-brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-brand span {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+}
+
+.nav-brand .brand-sub {
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 3px;
+  -webkit-text-fill-color: rgba(255,255,255,0.4);
+}
+
+/* Menu dropdown clássico */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 0;
+  align-items: center;
+}
+
+.nav-links .nav-item {
+  position: relative;
+}
+
+.nav-links .nav-item > a {
+  color: var(--white);
+  text-decoration: none;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 20px 18px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: var(--transition);
+  position: relative;
+  border-bottom: 3px solid transparent;
+}
+
+.nav-links .nav-item > a:hover,
+.nav-links .nav-item > a.active {
+  color: var(--gold);
+  background: rgba(245, 166, 35, 0.08);
+  border-bottom: 3px solid var(--gold);
+}
+
+.nav-links .nav-item > a .arrow {
+  font-size: 0.6rem;
+  transition: var(--transition);
+}
+
+.nav-links .nav-item:hover > a .arrow {
+  transform: rotate(180deg);
+}
+
+/* Dropdown menu estilo clássico */
+.nav-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  background: linear-gradient(180deg, #1a1a2e, #0d0d1f);
+  border: 1px solid rgba(245, 166, 35, 0.2);
+  border-top: 2px solid var(--gold);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-5px);
+  transition: var(--transition);
+  z-index: 1001;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.nav-links .nav-item:hover .nav-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.nav-dropdown a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: var(--transition);
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+
+.nav-dropdown a:hover {
+  background: rgba(245, 166, 35, 0.1);
+  color: var(--gold);
+  padding-left: 25px;
+}
+
+.nav-dropdown a .year-badge {
+  background: rgba(245, 166, 35, 0.15);
+  color: var(--gold);
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* Dropdown decades */
+.nav-dropdown-decades {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  min-width: 180px;
+  background: linear-gradient(180deg, #1a1a2e, #0d0d1f);
+  border: 1px solid rgba(245, 166, 35, 0.2);
+  border-left: 2px solid var(--gold);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-5px);
+  transition: var(--transition);
+  z-index: 1002;
+}
+
+.nav-dropdown .nav-item-decade:hover .nav-dropdown-decades {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+.nav-dropdown-decades a {
+  padding: 8px 16px;
+  font-size: 0.8rem;
+}
+
+/* Divider no dropdown */
+.nav-dropdown .nav-divider {
+  height: 1px;
+  background: rgba(245, 166, 35, 0.15);
+  margin: 4px 0;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  padding: 5px;
+  z-index: 1001;
+}
+
+.hamburger span {
+  width: 28px;
+  height: 2px;
+  background: var(--gold);
+  border-radius: 1px;
+  transition: var(--transition);
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ========== HERO SECTION ========== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  background: var(--gradient-dark);
+  overflow: hidden;
+  padding: 2rem;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(233, 69, 96, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(245, 166, 35, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 50% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
+  animation: heroPulse 8s ease-in-out infinite alternate;
+}
+
+@keyframes heroPulse {
+  0% { opacity: 0.5; transform: scale(1); }
+  100% { opacity: 1; transform: scale(1.05); }
+}
+
+.hero-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--gold);
+  border-radius: 50%;
+  opacity: 0;
+  animation: particleFloat 6s infinite;
+}
+
+@keyframes particleFloat {
+  0% { opacity: 0; transform: translateY(100vh) rotate(0deg); }
+  10% { opacity: 0.8; }
+  90% { opacity: 0.8; }
+  100% { opacity: 0; transform: translateY(-100px) rotate(720deg); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+}
+
+.hero-badge {
+  display: inline-block;
+  padding: 8px 24px;
+  background: rgba(245, 166, 35, 0.15);
+  border: 1px solid rgba(245, 166, 35, 0.3);
+  border-radius: 50px;
+  color: var(--gold);
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  animation: fadeInDown 0.8s ease;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 4.5rem;
+  font-weight: 900;
+  color: var(--white);
+  margin-bottom: 1rem;
+  animation: fadeInUp 0.8s ease 0.2s both;
+  line-height: 1.1;
+}
+
+.hero h1 .highlight {
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-size: 1.3rem;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 2rem;
+  font-weight: 300;
+  animation: fadeInUp 0.8s ease 0.4s both;
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 2.5rem;
+  animation: fadeInUp 0.8s ease 0.6s both;
+}
+
+.hero-stat {
+  text-align: center;
+}
+
+.hero-stat .number {
+  font-family: 'Oswald', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.hero-stat .label {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 4px;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2.5rem;
+  animation: fadeInUp 0.8s ease 0.8s both;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: var(--transition);
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background: var(--gradient-gold);
+  color: var(--primary);
+  box-shadow: 0 4px 15px rgba(245, 166, 35, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(245, 166, 35, 0.5);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid rgba(255,255,255,0.3);
+}
+
+.btn-secondary:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: translateY(-2px);
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========== SECTIONS ========== */
+.section {
+  padding: 5rem 2rem;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.section-header .badge {
+  display: inline-block;
+  padding: 6px 20px;
+  background: rgba(233, 69, 96, 0.1);
+  color: var(--accent);
+  border-radius: 50px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.section-header h2 {
+  font-size: 2.8rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.section-header p {
+  max-width: 600px;
+  margin: 0 auto;
+  color: var(--text-light);
+  font-size: 1.1rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ========== HISTORY TIMELINE ========== */
+.history-section {
+  background: var(--white);
+}
+
+.timeline {
+  position: relative;
+  padding: 2rem 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--gold), var(--accent), var(--gold));
+  border-radius: 2px;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3rem;
+  position: relative;
+  opacity: 0;
+  animation: fadeInTimeline 0.6s ease forwards;
+}
+
+.timeline-item:nth-child(odd) {
+  flex-direction: row;
+}
+
+.timeline-item:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.timeline-content {
+  width: 45%;
+  padding: 1.5rem;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.timeline-content:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+.timeline-dot {
+  width: 20px;
+  height: 20px;
+  background: var(--gold);
+  border: 4px solid var(--white);
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 0 4px rgba(245, 166, 35, 0.2);
+  z-index: 2;
+}
+
+.timeline-year {
+  font-family: 'Oswald', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.timeline-host {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.timeline-champion {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  color: var(--text-light);
+}
+
+.timeline-champion .trophy {
+  font-size: 1.2rem;
+}
+
+.timeline-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 1rem;
+  color: var(--accent);
+  text-decoration: none;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: var(--transition);
+}
+
+.timeline-link:hover {
+  color: var(--gold);
+  gap: 10px;
+}
+
+@keyframes fadeInTimeline {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========== COPAS GRID ========== */
+.copas-grid-section {
+  background: var(--light-gray);
+}
+
+.copas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.copa-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  position: relative;
+}
+
+.copa-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+  filter: brightness(0.92);
+}
+
+.copa-card:active {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  filter: brightness(0.85);
+  transition: all 0.1s ease;
+}
+
+.copa-card-body {
+  position: relative;
+  overflow: hidden;
+}
+
+.copa-card-flag-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+  line-height: 1;
+}
+
+.copa-card-flag-bg img {
+  width: 120px;
+  height: auto;
+  opacity: 0.12;
+  filter: grayscale(10%);
+}
+
+.flag-icon {
+  vertical-align: middle;
+  border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.copa-card-info {
+  position: relative;
+  z-index: 1;
+}
+
+.copa-card-header {
+  background: var(--gradient-dark);
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.copa-card-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(245, 166, 35, 0.2), transparent);
+  border-radius: 50%;
+  transform: translate(30%, -30%);
+}
+
+.copa-card-year {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.copa-card-host {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.7);
+  margin-top: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.copa-card-body {
+  padding: 1.5rem;
+}
+
+.copa-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.copa-card-info-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.copa-card-info-row .icon {
+  font-size: 1.2rem;
+  width: 24px;
+  text-align: center;
+}
+
+.copa-card-info-row .label {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  min-width: 60px;
+}
+
+.copa-card-info-row .value {
+  font-weight: 500;
+  color: var(--text);
+}
+
+.copa-card-footer {
+  padding: 0 1.5rem 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.copa-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--accent);
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.copa-card-link:hover {
+  color: var(--gold);
+  gap: 10px;
+}
+
+/* ========== COPA DETAIL PAGE ========== */
+.copa-hero {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  background: var(--gradient-dark);
+  padding: 6rem 2rem 3rem;
+  overflow: hidden;
+}
+
+.copa-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(245, 166, 35, 0.1) 0%, transparent 60%);
+}
+
+.copa-hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.copa-hero-year {
+  font-family: 'Playfair Display', serif;
+  font-size: 6rem;
+  font-weight: 900;
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.copa-hero-host {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.5rem;
+  color: rgba(255,255,255,0.7);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-top: 0.5rem;
+}
+
+.copa-hero-champion-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 1.5rem;
+  padding: 12px 28px;
+  background: rgba(245, 166, 35, 0.15);
+  border: 1px solid rgba(245, 166, 35, 0.3);
+  border-radius: 50px;
+  color: var(--gold);
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+
+/* Detail sections */
+.copa-detail {
+  padding: 4rem 2rem;
+}
+
+.copa-detail .container {
+  max-width: 1000px;
+}
+
+.detail-section {
+  margin-bottom: 3rem;
+}
+
+.detail-section h2 {
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 3px solid var(--gold);
+  display: inline-block;
+}
+
+.detail-section p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.detail-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.detail-section ul li {
+  padding: 0.7rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  font-size: 1rem;
+}
+
+.detail-section ul li::before {
+  content: '⚽';
+  position: absolute;
+  left: 0;
+  font-size: 0.9rem;
+}
+
+/* Info Cards Grid */
+.info-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.info-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  border-left: 4px solid var(--gold);
+  transition: var(--transition);
+}
+
+.info-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+}
+
+.info-card h3 {
+  font-size: 1.1rem;
+  color: var(--primary);
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.info-card p, .info-card ul {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.info-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.info-card ul li {
+  padding: 0.3rem 0;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.info-card ul li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-weight: bold;
+}
+
+/* Match Table */
+.match-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.match-table thead {
+  background: var(--gradient-dark);
+  color: var(--white);
+}
+
+.match-table th {
+  padding: 1rem;
+  text-align: left;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+}
+
+.match-table td {
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  font-size: 0.95rem;
+}
+
+.match-table tbody tr:hover {
+  background: rgba(245, 166, 35, 0.05);
+}
+
+.match-table .champion-row {
+  background: rgba(245, 166, 35, 0.1);
+  font-weight: 600;
+}
+
+/* ========== FOOTER ========== */
+.footer {
+  background: var(--primary);
+  color: var(--white);
+  padding: 3rem 2rem 1.5rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 2rem;
+}
+
+.footer-brand h3 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.footer-brand p {
+  color: rgba(255,255,255,0.6);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.footer-links h4 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.footer-links ul {
+  list-style: none;
+}
+
+.footer-links ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links ul li a {
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.footer-links ul li a:hover {
+  color: var(--gold);
+  padding-left: 5px;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.4);
+  font-size: 0.85rem;
+}
+
+/* ========== SCROLL TO TOP ========== */
+.scroll-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 50px;
+  height: 50px;
+  background: var(--gradient-gold);
+  color: var(--primary);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(245, 166, 35, 0.3);
+  z-index: 999;
+}
+
+.scroll-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-top:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(245, 166, 35, 0.5);
+}
+
+/* ========== SEARCH BAR ========== */
+.search-container {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  position: relative;
+}
+
+.search-input {
+  width: 100%;
+  padding: 1rem 1.5rem 1rem 3rem;
+  border: 2px solid rgba(0,0,0,0.1);
+  border-radius: 50px;
+  font-size: 1rem;
+  font-family: 'Roboto', sans-serif;
+  background: var(--white);
+  transition: var(--transition);
+  box-shadow: var(--shadow);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 4px rgba(245, 166, 35, 0.1);
+}
+
+.search-icon {
+  position: absolute;
+  left: 1.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  color: var(--text-light);
+}
+
+/* ========== FILTER BUTTONS ========== */
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.filter-btn {
+  padding: 8px 20px;
+  border: 2px solid rgba(0,0,0,0.1);
+  background: var(--white);
+  border-radius: 50px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: var(--transition);
+  color: var(--text);
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--primary);
+  color: var(--white);
+  border-color: var(--primary);
+}
+
+/* ========== DETALHES DOS JOGOS ========== */
+.match-details {
+  margin-top: 2rem;
+}
+
+.match-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  margin-bottom: 2rem;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.match-card-header {
+  background: var(--gradient-dark);
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.match-card-header .match-phase {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.8rem;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 4px 12px;
+  background: rgba(245, 166, 35, 0.15);
+  border-radius: 3px;
+}
+
+.match-card-header .match-date {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+}
+
+.match-card-header .match-stadium {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.6);
+}
+
+.match-card-score {
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  background: linear-gradient(135deg, rgba(245,166,35,0.03), rgba(233,69,96,0.03));
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.match-team {
+  text-align: center;
+  flex: 1;
+  max-width: 250px;
+}
+
+.match-team-flag {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.match-team-name {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.match-team-formation {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-top: 4px;
+}
+
+.match-score-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--primary);
+}
+
+.match-score-box .score-separator {
+  color: var(--gold);
+  font-size: 1.5rem;
+}
+
+.match-score-box .score-pen {
+  font-size: 1rem;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 400;
+  color: var(--accent);
+  display: block;
+}
+
+.match-card-body {
+  padding: 1.5rem;
+}
+
+/* Goal scorers */
+.goal-scorers {
+  margin-bottom: 1.5rem;
+}
+
+.goal-scorers h4 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--primary);
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--gold);
+  display: inline-block;
+}
+
+.goal-scorer-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 0;
+  font-size: 0.95rem;
+}
+
+.goal-scorer-item .goal-icon {
+  font-size: 0.9rem;
+}
+
+.goal-scorer-item .goal-time {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.8rem;
+  color: var(--accent);
+  min-width: 45px;
+}
+
+.goal-scorer-item .goal-player {
+  font-weight: 500;
+  color: var(--text);
+}
+
+.goal-scorer-item .goal-type {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  font-style: italic;
+}
+
+/* Formations */
+.formations-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.formation-card {
+  background: rgba(0,0,0,0.02);
+  border-radius: 8px;
+  padding: 1rem;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.formation-card h5 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--primary);
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.formation-card .formation-type {
+  background: rgba(245, 166, 35, 0.15);
+  color: var(--gold);
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 0.75rem;
+}
+
+.formation-list {
+  list-style: none;
+  padding: 0;
+}
+
+.formation-list li {
+  padding: 4px 0;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid rgba(0,0,0,0.03);
+}
+
+.formation-list li .player-number {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.8rem;
+  color: var(--gold);
+  background: rgba(245, 166, 35, 0.1);
+  padding: 1px 6px;
+  border-radius: 3px;
+  min-width: 24px;
+  text-align: center;
+}
+
+.formation-list li .player-position {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  min-width: 30px;
+}
+
+/* Bench players */
+.bench-section {
+  margin-top: 1rem;
+}
+
+.bench-section h5 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+}
+
+.bench-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.bench-player {
+  font-size: 0.8rem;
+  padding: 3px 10px;
+  background: rgba(0,0,0,0.04);
+  border-radius: 4px;
+  color: var(--text);
+}
+
+/* Match stats */
+.match-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.match-stat {
+  text-align: center;
+  padding: 0.5rem;
+  background: rgba(0,0,0,0.02);
+  border-radius: 6px;
+}
+
+.match-stat .stat-value {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--primary);
+  line-height: 1;
+}
+
+.match-stat .stat-label {
+  font-size: 0.7rem;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+}
+
+/* Cards */
+.cards-section {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.card-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+}
+
+.card-icon {
+  width: 16px;
+  height: 22px;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.card-icon.yellow {
+  background: #fbbf24;
+  border: 1px solid #d97706;
+}
+
+.card-icon.red {
+  background: #ef4444;
+  border: 1px solid #b91c1c;
+}
+
+/* Substitutions */
+.substitutions {
+  margin-top: 1rem;
+}
+
+.substitutions h5 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+}
+
+.sub-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+  font-size: 0.85rem;
+}
+
+.sub-item .sub-arrow {
+  color: var(--gold);
+  font-weight: bold;
+}
+
+/* Penalties section */
+.penalties-section {
+  background: rgba(233, 69, 96, 0.05);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  border: 1px solid rgba(233, 69, 96, 0.1);
+}
+
+.penalties-section h5 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--accent);
+  margin-bottom: 0.8rem;
+}
+
+.penalty-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+  font-size: 0.9rem;
+}
+
+.penalty-item .pen-result {
+  font-weight: 600;
+  min-width: 20px;
+}
+
+.penalty-item .pen-result.scored {
+  color: #16a34a;
+}
+
+.penalty-item .pen-result.missed {
+  color: #dc2626;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 1024px) {
+  .hero h1 { font-size: 3.5rem; }
+  .footer-content { grid-template-columns: 1fr 1fr; }
+  .nav-links .nav-item > a { padding: 20px 12px; font-size: 0.8rem; }
+}
+
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
+
+  .nav-top-bar { display: none; }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 85%;
+    max-width: 380px;
+    height: 100vh;
+    background: linear-gradient(180deg, #0a0a1a, #1a1a2e);
+    flex-direction: column;
+    padding: 80px 0 2rem;
+    gap: 0;
+    transition: var(--transition);
+    box-shadow: -5px 0 30px rgba(0,0,0,0.5);
+    border-left: 2px solid rgba(245, 166, 35, 0.2);
+    overflow-y: auto;
+  }
+
+  .nav-links.active { right: 0; }
+
+  .nav-links .nav-item > a {
+    width: 100%;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    border-bottom: none;
+  }
+
+  .nav-dropdown {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    border-top: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .nav-links .nav-item.open .nav-dropdown {
+    max-height: 1000px;
+  }
+
+  .nav-dropdown-decades {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .nav-links .nav-item.open .nav-dropdown-decades {
+    max-height: 500px;
+  }
+
+  .hero h1 { font-size: 2.5rem; }
+  .hero-subtitle { font-size: 1rem; }
+  .hero-stats { gap: 1.5rem; }
+  .hero-stat .number { font-size: 2rem; }
+  .hero-cta { flex-direction: column; align-items: center; }
+
+  .section-header h2 { font-size: 2rem; }
+
+  .timeline::before { left: 20px; }
+  .timeline-item,
+  .timeline-item:nth-child(even) {
+    flex-direction: row;
+    padding-left: 50px;
+  }
+  .timeline-content { width: 100%; }
+  .timeline-dot { left: 20px; }
+
+  .copas-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .copa-hero-year { font-size: 4rem; }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .match-table { font-size: 0.85rem; }
+  .match-table th, .match-table td { padding: 0.6rem; }
+
+  .match-card-score {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .formations-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .match-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .cards-section {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 { font-size: 2rem; }
+  .hero-stat .number { font-size: 1.6rem; }
+  .section { padding: 3rem 1rem; }
+  .copa-hero-year { font-size: 3rem; }
+  .copa-hero { min-height: 40vh; }
+  .info-cards { grid-template-columns: 1fr; }
+
+  .nav-main { padding: 0 1rem; }
+  .nav-brand span { font-size: 1rem; }
+
+  .match-score-box { font-size: 2rem; }
+  .match-team-flag { font-size: 2rem; }
+}
+
+/* ========== ANIMATIONS ON SCROLL ========== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========== BACK TO MENU BUTTON ========== */
+.back-to-menu {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 1.5rem auto;
+  padding: 12px 28px;
+  background: var(--gradient-gold);
+  color: var(--primary);
+  text-decoration: none;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 50px;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(245, 166, 35, 0.3);
+  text-align: center;
+  justify-content: center;
+}
+
+.back-to-menu:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(245, 166, 35, 0.5);
+  background: linear-gradient(135deg, #ffd700, #f5a623, #ffd700);
+}
+
+.back-to-menu .arrow {
+  font-size: 1.2rem;
+  transition: var(--transition);
+}
+
+.back-to-menu:hover .arrow {
+  transform: translateX(-4px);
+}
+
+/* Mobile overlay */
+.mobile-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 998;
+}
+
+.mobile-overlay.active {
+  display: block;
+}
+
+/* ========== SIDE MENU ========== */
+.side-menu-toggle {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1001;
+  background: var(--gradient-dark);
+  color: var(--gold);
+  border: 2px solid var(--gold);
+  border-right: none;
+  border-radius: 12px 0 0 12px;
+  padding: 14px 10px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: var(--transition);
+  box-shadow: -4px 4px 15px rgba(0,0,0,0.3);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  letter-spacing: 2px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+}
+
+.side-menu-toggle:hover {
+  background: var(--gradient-gold);
+  color: var(--primary);
+  padding-right: 16px;
+}
+
+.side-menu {
+  position: fixed;
+  right: -320px;
+  top: 0;
+  width: 300px;
+  height: 100vh;
+  background: linear-gradient(180deg, #0a0a1a 0%, #1a1a2e 50%, #16213e 100%);
+  z-index: 1002;
+  overflow-y: auto;
+  transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: -5px 0 30px rgba(0,0,0,0.5);
+  border-left: 2px solid var(--gold);
+}
+
+.side-menu.open {
+  right: 0;
+}
+
+.side-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 1.5rem;
+  background: linear-gradient(90deg, rgba(245, 166, 35, 0.15), transparent);
+  border-bottom: 1px solid rgba(245, 166, 35, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.side-menu-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--gold);
+}
+
+.side-menu-close {
+  background: none;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.6);
+  font-size: 1.1rem;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.side-menu-close:hover {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.side-menu-links {
+  padding: 0.5rem 0;
+}
+
+.side-menu-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0.7rem 1.5rem;
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.9rem;
+  transition: var(--transition);
+  border-left: 3px solid transparent;
+}
+
+.side-menu-link:hover {
+  background: rgba(245, 166, 35, 0.1);
+  color: var(--gold);
+  border-left-color: var(--gold);
+}
+
+.side-menu-link.active {
+  background: rgba(245, 166, 35, 0.15);
+  color: var(--gold);
+  border-left-color: var(--gold);
+  font-weight: 500;
+}
+
+.side-menu-divider {
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  margin: 0.5rem 1.5rem;
+  opacity: 0.3;
+}
+
+.side-menu-section-title {
+  padding: 0.5rem 1.5rem;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: rgba(245, 166, 35, 0.6);
+}
+
+.side-menu-link.copa-link {
+  padding-left: 1.5rem;
+  font-size: 0.85rem;
+}
+
+.side-menu-link.copa-link:hover,
+.side-menu-link.copa-link.highlighted {
+  background: rgba(245, 166, 35, 0.15);
+  color: var(--gold);
+}
+
+/* Overlay when side menu is open */
+.side-menu-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1001;
+}
+
+.side-menu-overlay.active {
+  display: block;
+}
+
+.side-menu-toggle.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-50%) scale(0.8);
+}
+
+/* Mobile side menu */
+@media (max-width: 768px) {
+  .side-menu {
+    width: 260px;
+    right: -280px;
+  }
+
+  .side-menu-toggle {
+    right: 0;
+    padding: 10px 8px;
+    font-size: 1rem;
+  }
+
+  .side-menu-link {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.85rem;
+  }
+
+  .side-menu-link.copa-link {
+    font-size: 0.8rem;
+  }
+}
+
+/* ========== CULTURAL ELEMENTS ========== */
+.copa-card-cultural {
+  position: absolute;
+  bottom: 8px;
+  right: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  z-index: 2;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.copa-card-cultural:hover {
+  transform: scale(1.2);
+}
+
+.copa-card-cultural:hover .cultural-name {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cultural-icon {
+  font-size: 1.8rem;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+  transition: var(--transition);
+}
+
+.copa-card-cultural:hover .cultural-icon {
+  filter: drop-shadow(0 4px 8px rgba(245, 166, 35, 0.4));
+}
+
+.cultural-name {
+  font-size: 0.6rem;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-light);
+  opacity: 0;
+  transform: translateY(5px);
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+/* Animation classes */
+.cultural-swing {
+  animation: swing 2s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+.cultural-wobble {
+  animation: wobble 2s ease-in-out infinite;
+}
+
+.cultural-vibrate {
+  animation: vibrate 0.3s ease-in-out infinite;
+}
+
+.cultural-steam {
+  animation: steam 2s ease-in-out infinite;
+}
+
+.cultural-clink {
+  animation: clink 1.5s ease-in-out infinite;
+}
+
+.cultural-sparkle {
+  animation: sparkle 1.5s ease-in-out infinite;
+}
+
+.cultural-shake {
+  animation: shake 0.5s ease-in-out infinite;
+}
+
+.cultural-ring {
+  animation: ring 2s ease-in-out infinite;
+}
+
+.cultural-bounce {
+  animation: bounce 1s ease-in-out infinite;
+}
+
+.cultural-dance {
+  animation: dance 1.5s ease-in-out infinite;
+}
+
+.cultural-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.cultural-spin {
+  animation: spin 2s linear infinite;
+}
+
+.cultural-drive {
+  animation: drive 2s ease-in-out infinite;
+}
+
+.cultural-fan {
+  animation: fan 2s ease-in-out infinite;
+}
+
+.cultural-strum {
+  animation: strum 1s ease-in-out infinite;
+}
+
+/* Keyframes */
+@keyframes swing {
+  0%, 100% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+}
+
+@keyframes wobble {
+  0%, 100% { transform: rotate(-3deg); }
+  25% { transform: rotate(3deg); }
+  75% { transform: rotate(-3deg); }
+}
+
+@keyframes vibrate {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  75% { transform: translateX(2px); }
+}
+
+@keyframes steam {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(-5px); opacity: 0.7; }
+}
+
+@keyframes clink {
+  0%, 100% { transform: rotate(0); }
+  25% { transform: rotate(-10deg); }
+  75% { transform: rotate(10deg); }
+}
+
+@keyframes sparkle {
+  0%, 100% { filter: brightness(1) drop-shadow(0 2px 4px rgba(0,0,0,0.2)); }
+  50% { filter: brightness(1.3) drop-shadow(0 0 10px rgba(245, 166, 35, 0.6)); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: rotate(0); }
+  25% { transform: rotate(-15deg); }
+  75% { transform: rotate(15deg); }
+}
+
+@keyframes ring {
+  0%, 100% { transform: rotate(0); }
+  10% { transform: rotate(15deg); }
+  20% { transform: rotate(-15deg); }
+  30% { transform: rotate(10deg); }
+  40% { transform: rotate(-10deg); }
+  50% { transform: rotate(0); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes dance {
+  0%, 100% { transform: translateX(0) rotate(0); }
+  25% { transform: translateX(-3px) rotate(-5deg); }
+  75% { transform: translateX(3px) rotate(5deg); }
+}
+
+@keyframes glow {
+  0%, 100% { filter: brightness(1) drop-shadow(0 0 5px rgba(245, 166, 35, 0.3)); }
+  50% { filter: brightness(1.2) drop-shadow(0 0 15px rgba(245, 166, 35, 0.6)); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes drive {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(5px); }
+}
+
+@keyframes fan {
+  0%, 100% { transform: scaleX(1); }
+  50% { transform: scaleX(1.2); }
+}
+
+@keyframes strum {
+  0%, 100% { transform: rotate(0); }
+  25% { transform: rotate(-5deg); }
+  75% { transform: rotate(5deg); }
+}
+
+/* Click animation */
+.copa-card-cultural.clicked .cultural-icon {
+  animation: pop 0.3s ease;
+}
+
+@keyframes pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.5); }
+  100% { transform: scale(1); }
+}
+
+/* Card highlight when targeted from side menu */
+.copa-card.card-highlighted {
+  animation: cardHighlight 2s ease;
+  box-shadow: 0 0 0 3px var(--gold), 0 0 30px rgba(245, 166, 35, 0.5);
+  transform: translateY(-8px);
+}
+
+@keyframes cardHighlight {
+  0% { box-shadow: 0 0 0 3px var(--gold), 0 0 30px rgba(245, 166, 35, 0.5); }
+  50% { box-shadow: 0 0 0 5px var(--gold), 0 0 50px rgba(245, 166, 35, 0.7); }
+  100% { box-shadow: var(--shadow); }
+}
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-top-bar">
+      <div class="top-info">
+        <span><span class="dot"></span> Copa do Mundo FIFA</span>
+        <span><span class="dot"></span> Desde 1930</span>
+        <span><span class="dot"></span> 23 Edições</span>
+      </div>
+      <div class="top-info">
+        <span>🏆 História Completa do Futebol Mundial</span>
+      </div>
+    </div>
+    <div class="nav-main">
+      <a href="index.html" class="nav-brand">
+        <span class="trophy-icon">🏆</span>
+        <div class="nav-brand-text">
+          <span>Copa do Mundo</span>
+          <span class="brand-sub">FIFA World Cup</span>
+        </div>
+      </a>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li class="nav-item"><a href="index.html" class="active">Início</a></li>
+        <li class="nav-item">
+          <a href="#">Copas <span class="arrow">▼</span></a>
+          <div class="nav-dropdown">
+            <a href="copas/1930.html"><span class="year-badge">1930</span> Uruguai</a>
+            <a href="copas/1934.html"><span class="year-badge">1934</span> Itália</a>
+            <a href="copas/1938.html"><span class="year-badge">1938</span> França</a>
+            <div class="nav-divider"></div>
+            <a href="copas/1950.html"><span class="year-badge">1950</span> Brasil</a>
+            <a href="copas/1954.html"><span class="year-badge">1954</span> Suíça</a>
+            <a href="copas/1958.html"><span class="year-badge">1958</span> Suécia</a>
+            <a href="copas/1962.html"><span class="year-badge">1962</span> Chile</a>
+            <a href="copas/1966.html"><span class="year-badge">1966</span> Inglaterra</a>
+            <a href="copas/1970.html"><span class="year-badge">1970</span> México</a>
+            <a href="copas/1974.html"><span class="year-badge">1974</span> Alemanha</a>
+            <a href="copas/1978.html"><span class="year-badge">1978</span> Argentina</a>
+            <a href="copas/1982.html"><span class="year-badge">1982</span> Espanha</a>
+            <a href="copas/1986.html"><span class="year-badge">1986</span> México</a>
+            <a href="copas/1990.html"><span class="year-badge">1990</span> Itália</a>
+            <a href="copas/1994.html"><span class="year-badge">1994</span> EUA</a>
+            <a href="copas/1998.html"><span class="year-badge">1998</span> França</a>
+            <a href="copas/2002.html"><span class="year-badge">2002</span> Coreia/Japão</a>
+            <a href="copas/2006.html"><span class="year-badge">2006</span> Alemanha</a>
+            <a href="copas/2010.html"><span class="year-badge">2010</span> África do Sul</a>
+            <a href="copas/2014.html"><span class="year-badge">2014</span> Brasil</a>
+            <a href="copas/2018.html"><span class="year-badge">2018</span> Rússia</a>
+            <a href="copas/2022.html"><span class="year-badge">2022</span> Catar</a>
+            <a href="copas/2026.html"><span class="year-badge">2026</span> EUA/Mex/Can</a>
+          </div>
+        </li>
+        <li class="nav-item"><a href="#timeline">Linha do Tempo</a></li>
+        <li class="nav-item"><a href="#copas-grid">Todas as Copas</a></li>
+        <li class="nav-item"><a href="#champions">Campeões</a></li>
+        <li class="nav-item"><a href="#regras">Regras</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- MOBILE OVERLAY -->
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="hero">
+    <div class="hero-particles">
+      <div class="particle" style="left:10%;animation-delay:0s"></div>
+      <div class="particle" style="left:20%;animation-delay:1s"></div>
+      <div class="particle" style="left:30%;animation-delay:2s"></div>
+      <div class="particle" style="left:40%;animation-delay:0.5s"></div>
+      <div class="particle" style="left:50%;animation-delay:1.5s"></div>
+      <div class="particle" style="left:60%;animation-delay:2.5s"></div>
+      <div class="particle" style="left:70%;animation-delay:0.8s"></div>
+      <div class="particle" style="left:80%;animation-delay:1.8s"></div>
+      <div class="particle" style="left:90%;animation-delay:2.8s"></div>
+      <div class="particle" style="left:15%;animation-delay:3s"></div>
+      <div class="particle" style="left:25%;animation-delay:0.3s"></div>
+      <div class="particle" style="left:35%;animation-delay:1.3s"></div>
+      <div class="particle" style="left:45%;animation-delay:2.3s"></div>
+      <div class="particle" style="left:55%;animation-delay:0.7s"></div>
+      <div class="particle" style="left:65%;animation-delay:1.7s"></div>
+      <div class="particle" style="left:75%;animation-delay:2.7s"></div>
+      <div class="particle" style="left:85%;animation-delay:0.2s"></div>
+      <div class="particle" style="left:95%;animation-delay:1.2s"></div>
+      <div class="particle" style="left:5%;animation-delay:2.2s"></div>
+      <div class="particle" style="left:48%;animation-delay:3.5s"></div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-badge">⚽ Desde 1930</div>
+      <h1>Copa do Mundo de <span class="highlight">Futebol</span></h1>
+      <p class="hero-subtitle">A história completa do maior evento esportivo do planeta. Reviva todos os momentos, campeões e emoções de quase um século de futebol.</p>
+
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="number">22</div>
+          <div class="label">Edições</div>
+        </div>
+        <div class="hero-stat">
+          <div class="number">80+</div>
+          <div class="label">Anos de História</div>
+        </div>
+        <div class="hero-stat">
+          <div class="number">21</div>
+          <div class="label">Países Sede</div>
+        </div>
+      </div>
+
+      <div class="hero-cta">
+        <a href="#timeline" class="btn btn-primary">Explorar Timeline</a>
+        <a href="#copas-grid" class="btn btn-secondary">Ver Todas as Copas</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HISTORY TIMELINE -->
+  <section class="section history-section" id="timeline">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge">História</div>
+        <h2>Linha do Tempo das Copas</h2>
+        <p>Uma jornada por todas as 23 edições do Mundial, desde o Uruguai até EUA/México/Canadá.</p>
+      </div>
+
+      <div class="timeline">
+
+        <!-- 1930 -->
+        <div class="timeline-item" style="animation-delay: 0.1s">
+          <div class="timeline-content">
+            <div class="timeline-year">1930</div>
+            <div class="timeline-host"><img src="https://flagcdn.com/uy.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Uruguai</div>
+            <div class="timeline-champion"><span class="trophy">🏆</span> Campeão: Uruguai</div>
+            <a href="copas/1930.html" class="timeline-link">Ver detalhes →</a>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <!-- 1934 -->
+        <div class="timeline-item" style="animation-delay: 0.2s">
+          <div class="timeline-content">
+            <div class="timeline-year">1934</div>
+            <div class="timeline-host"><img src="https://flagcdn.com/it.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Itália</div>
+            <div class="timeline-champion"><span class="trophy">🏆</span> Campeão: Itália</div>
+            <a href="copas/1934.html" class="timeline-link">Ver detalhes →</a>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <!-- 1938 -->
+        <div class="timeline-item" style="animation-delay: 0.3s">
+          <div class="timeline-content">
+            <div class="timeline-year">1938</div>
+            <div class="timeline-host"><img src="https://flagcdn.com/fr.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> França</div>
+            <div class="timeline-champion"><span class="trophy">🏆</span> Campeão: Itália</div>
+            <a href="copas/1938.html" class="timeline-link">Ver detalhes →</a>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <!-- 1950 -->
+        <div class="timeline-item" style="animation-delay: 0.4s">
+          <div class="timeline-content">
+            <div class="timeline-year">1950</div>
+            <div class="timeline-host"><img src="https://flagcdn.com/br.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Brasil</div>
+            <div class="timeline-champion"><span class="trophy">🏆</span> Campeão: Uruguai</div>
+            <a href="copas/1950.html" class="timeline-link">Ver detalhes →</a>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <!-- 1954 -->
+        <div class="timeline-item" style="animation-delay: 0.5s">
+          <div class="timeline-content">
+            <div class="timeline-year">1954</div>
+            <div class="timeline-host">🇨🇭 Suíça</div>
+            <div class="timeline-champion"><span class="trophy">🏆</span> Campeão: Alemanha Ocidental</div>
+            <a href="copas/1954.html" class="timeline-link">Ver detalhes →</a>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <!-- 1958 -->
+        <div class="timeline-item" style="animation-delay: 0.6s">
+          <div class="timeline-content">
+            <div class="timeline-year">1958</div>
+            <div class="timeline-host"><img src="https://flagcdn.com/se.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Suécia</div>
+            <div class="timeline-champion"><span class="trophy">🏆</span> Campeão: Brasil</div>
+            <a href="copas/1958.html" class="timeline-link">Ver detalhes →</a>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <!-- 1962 -->
+        <div class="timeline-item" style="animation-delay: 0.7s">
+          <div class="timeline-content">
+            <div class="timeline-year">1962</div>
+            <div class="timeline-host">🇨🇱 Chile</div>
+            <div class="timeline-champion"><span class="trophy">🏆</span> Campeão: Brasil</div>
+            <a href="copas/1962.html" class="timeline-link">Ver detalhes →</a>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <!-- 1966 -->
+        <div class="timeline-item" style="animation-delay: 0.8s">
+          <div class="timeline-content">
+            <div class="timeline-year">1966</div>
+            <div class="timeline-host"><img src="https://flagcdn.com/gb-eng.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Inglaterra</div>
+            <div class="timeline-champion"><span class="trophy">🏆</span> Campeão: Inglaterra</div>
+            <a href="copas/1966.html" class="timeline-link">Ver detalhes →</a>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <!-- 1970 -->
+        <div class="timeline-item" style="animation-delay: 0.9s">
+          <div class="timeline-content">
+            <div class="timeline-year">1970</div>
+            <div class="timeline-host"><img src="https://flagcdn.com/mx.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> México</div>
+            <div class="timeline-champion"><span class="trophy">🏆</span> Campeão: Brasil</div>
+            <a href="copas/1970.html" class="timeline-link">Ver detalhes →</a>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <!-- 1974 -->
+        <div class="timeline-item" style="animation-delay: 1.0s">
+          <div class="timeline-content">
+            <div class="timeline-year">1974</div>
+            <div class="timeline-host"><img src="https://flagcdn.com/de.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Alemanha Ocidental</div>
+            <div class="timeline-champion"><span class="trophy">🏆</span> Campeão: Alemanha Ocidental</div>
+            <a href="copas/1974.html" class="timeline-link">Ver detalhes →</a>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <!-- 1978 -->
+        <div class="timeline-item" style="animation-delay: 1.1s">
+          <div class="timeline-content">
+            <div class="timeline-year">1978</div>
+            <div class="timeline-host"><img src="https://flagcdn.com/ar.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Argentina</div>
+            <div class="timeline-champion"><span class="trophy">🏆</span> Campeão: Argentina</div>
+            <a href="copas/1978.html" class="timeline-link">Ver detalhes →</a>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <!-- 1982 -->
+        <div class="timeline-item" style="animation-delay: 1.2s">
+          <div class="timeline-content">
+            <div class="timeline-year">1982</div>
+            <div class="timeline-host"><img src="https://flagcdn.com/es.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Espanha</div>
+            <div class="timeline-champion"><span class="trophy">🏆</span> Campeão: Itália</div>
+            <a href="copas/1982.html" class="timeline-link">Ver detalhes →</a>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <!-- 1986 -->
+        <div class="timeline-item" style="animation-delay: 1.3s">
+          <div class="timeline-content">
+            <div class="timeline-year">1986</div>
+            <div class="timeline-host"><img src="https://flagcdn.com/mx.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> México</div>
+            <div class="timeline-champion"><span class="trophy">🏆</span> Campeão: Argentina</div>
+            <a href="copas/1986.html" class="timeline-link">Ver detalhes →</a>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <!-- 1990 -->
+        <div class="timeline-item" style="animation-delay: 1.4s">
+          <div class="timeline-content">
+            <div class="timeline-year">1990</div>
+            <div class="timeline-host"><img src="https://flagcdn.com/it.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Itália</div>
+            <div class="timeline-champion"><span class="trophy">🏆</span> Campeão: Alemanha Ocidental</div>
+            <a href="copas/1990.html" class="timeline-link">Ver detalhes →</a>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <!-- 1994 -->
+        <div class="timeline-item" style="animation-delay: 1.5s">
+          <div class="timeline-content">
+            <div class="timeline-year">1994</div>
+            <div class="timeline-host"><img src="https://flagcdn.com/us.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Estados Unidos</div>
+            <div class="timeline-champion"><span class="trophy">🏆</span> Campeão: Brasil</div>
+            <a href="copas/1994.html" class="timeline-link">Ver detalhes →</a>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <!-- 1998 -->
+        <div class="timeline-item" style="animation-delay: 1.6s">
+          <div class="timeline-content">
+            <div class="timeline-year">1998</div>
+            <div class="timeline-host"><img src="https://flagcdn.com/fr.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> França</div>
+            <div class="timeline-champion"><span class="trophy">🏆</span> Campeão: França</div>
+            <a href="copas/1998.html" class="timeline-link">Ver detalhes →</a>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <!-- 2002 -->
+        <div class="timeline-item" style="animation-delay: 1.7s">
+          <div class="timeline-content">
+            <div class="timeline-year">2002</div>
+            <div class="timeline-host">🇰🇷<img src="https://flagcdn.com/jp.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Coreia do Sul / Japão</div>
+            <div class="timeline-champion"><span class="trophy">🏆</span> Campeão: Brasil</div>
+            <a href="copas/2002.html" class="timeline-link">Ver detalhes →</a>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <!-- 2006 -->
+        <div class="timeline-item" style="animation-delay: 1.8s">
+          <div class="timeline-content">
+            <div class="timeline-year">2006</div>
+            <div class="timeline-host"><img src="https://flagcdn.com/de.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Alemanha</div>
+            <div class="timeline-champion"><span class="trophy">🏆</span> Campeão: Itália</div>
+            <a href="copas/2006.html" class="timeline-link">Ver detalhes →</a>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <!-- 2010 -->
+        <div class="timeline-item" style="animation-delay: 1.9s">
+          <div class="timeline-content">
+            <div class="timeline-year">2010</div>
+            <div class="timeline-host"><img src="https://flagcdn.com/za.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> África do Sul</div>
+            <div class="timeline-champion"><span class="trophy">🏆</span> Campeão: Espanha</div>
+            <a href="copas/2010.html" class="timeline-link">Ver detalhes →</a>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <!-- 2014 -->
+        <div class="timeline-item" style="animation-delay: 2.0s">
+          <div class="timeline-content">
+            <div class="timeline-year">2014</div>
+            <div class="timeline-host"><img src="https://flagcdn.com/br.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Brasil</div>
+            <div class="timeline-champion"><span class="trophy">🏆</span> Campeão: Alemanha</div>
+            <a href="copas/2014.html" class="timeline-link">Ver detalhes →</a>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <!-- 2018 -->
+        <div class="timeline-item" style="animation-delay: 2.1s">
+          <div class="timeline-content">
+            <div class="timeline-year">2018</div>
+            <div class="timeline-host"><img src="https://flagcdn.com/ru.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Rússia</div>
+            <div class="timeline-champion"><span class="trophy">🏆</span> Campeão: França</div>
+            <a href="copas/2018.html" class="timeline-link">Ver detalhes →</a>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <!-- 2022 -->
+        <div class="timeline-item" style="animation-delay: 2.2s">
+          <div class="timeline-content">
+            <div class="timeline-year">2022</div>
+            <div class="timeline-host"><img src="https://flagcdn.com/qa.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Qatar</div>
+            <div class="timeline-champion"><span class="trophy">🏆</span> Campeão: Argentina</div>
+            <a href="copas/2022.html" class="timeline-link">Ver detalhes →</a>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <!-- 2026 -->
+        <div class="timeline-item" style="animation-delay: 2.3s">
+          <div class="timeline-content">
+            <div class="timeline-year">2026</div>
+            <div class="timeline-host">🇺🇸🇲🇽<img src="https://flagcdn.com/ca.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> EUA / México / Canadá</div>
+            <div class="timeline-champion"><span class="trophy">🏆</span> Campeão: Espanha</div>
+            <a href="copas/2026.html" class="timeline-link">Ver detalhes →</a>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- COPAS GRID -->
+  <section class="section copas-grid-section" id="copas-grid">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge">Todas as Edições</div>
+        <h2>As 23 Copas do Mundo</h2>
+        <p>Explore cada edição com detalhes sobre a sede, campeão e vice-campeão.</p>
+      </div>
+
+      <div class="search-container">
+        <span class="search-icon">🔍</span>
+        <input type="text" class="search-input" id="searchInput" placeholder="Buscar por ano, país ou campeão...">
+      </div>
+
+      <div class="copas-grid" id="copasGrid">
+
+        <!-- 1930 -->
+        <a href="copas/1930.html" class="copa-card fade-in" id="card-1930" data-year="1930" data-host="Uruguai" data-champion="Uruguai" data-colors="#ffffff,#5bc0de,#f9d71c">
+          <div class="copa-card-header">
+            <div class="copa-card-year">1930</div>
+            <div class="copa-card-host"><img src="https://flagcdn.com/uy.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Uruguai</div>
+          </div>
+          <div class="copa-card-body">
+            <div class="copa-card-info">
+              <div class="copa-card-flag-bg"><img src="https://flagcdn.com/uy.svg" alt="" style="width:120px;height:auto;opacity:0.12;"></div>
+              <div class="copa-card-cultural" title="Candeeiro">
+                <span class="cultural-icon cultural-swing">🏮</span>
+                <span class="cultural-name">Candeeiro</span>
+              </div>
+              <div class="copa-card-info-row">
+                <span class="icon">🏆</span>
+                <span class="label">Campeão</span>
+                <span class="value"><img src="https://flagcdn.com/uy.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Uruguai</span>
+              </div>
+              <div class="copa-card-info-row">
+                <span class="icon">🥈</span>
+                <span class="label">Vice</span>
+                <span class="value"><img src="https://flagcdn.com/ar.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Argentina</span>
+              </div>
+            </div>
+          </div>
+          <div class="copa-card-footer">
+            <span class="copa-card-link">Ver detalhes →</span>
+          </div>
+        </a>
+
+        <!-- 1934 -->
+        <a href="copas/1934.html" class="copa-card fade-in" id="card-1934" data-year="1934" data-host="Itália" data-champion="Itália" data-colors="#008C45,#cd212a,#f4f5f0">
+          <div class="copa-card-header">
+            <div class="copa-card-year">1934</div>
+            <div class="copa-card-host"><img src="https://flagcdn.com/it.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Itália</div>
+          </div>
+          <div class="copa-card-body">
+            <div class="copa-card-info">
+              <div class="copa-card-flag-bg"><img src="https://flagcdn.com/it.svg" alt="" style="width:120px;height:auto;opacity:0.12;"></div>
+              <div class="copa-card-cultural" title="Pizza">
+                <span class="cultural-icon cultural-wobble">🍕</span>
+                <span class="cultural-name">Pizza</span>
+              </div>
+              <div class="copa-card-info-row">
+                <span class="icon">🏆</span>
+                <span class="label">Campeão</span>
+                <span class="value"><img src="https://flagcdn.com/it.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Itália</span>
+              </div>
+              <div class="copa-card-info-row">
+                <span class="icon">🥈</span>
+                <span class="label">Vice</span>
+                <span class="value"><img src="https://flagcdn.com/cz.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Tchecoslováquia</span>
+              </div>
+            </div>
+          </div>
+          <div class="copa-card-footer">
+            <span class="copa-card-link">Ver detalhes →</span>
+          </div>
+        </a>
+
+        <!-- 1938 -->
+        <a href="copas/1938.html" class="copa-card fade-in" id="card-1938" data-year="1938" data-host="França" data-champion="Itália" data-colors="#002395,#ffffff,#ed2939">
+          <div class="copa-card-header">
+            <div class="copa-card-year">1938</div>
+            <div class="copa-card-host"><img src="https://flagcdn.com/fr.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> França</div>
+          </div>
+          <div class="copa-card-body">
+            <div class="copa-card-info">
+              <div class="copa-card-flag-bg"><img src="https://flagcdn.com/it.svg" alt="" style="width:120px;height:auto;opacity:0.12;"></div>
+              <div class="copa-card-cultural" title="Violino">
+                <span class="cultural-icon cultural-vibrate">🎻</span>
+                <span class="cultural-name">Violino</span>
+              </div>
+              <div class="copa-card-info-row">
+                <span class="icon">🏆</span>
+                <span class="label">Campeão</span>
+                <span class="value"><img src="https://flagcdn.com/it.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Itália</span>
+              </div>
+              <div class="copa-card-info-row">
+                <span class="icon">🥈</span>
+                <span class="label">Vice</span>
+                <span class="value"><img src="https://flagcdn.com/hu.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Hungria</span>
+              </div>
+            </div>
+          </div>
+          <div class="copa-card-footer">
+            <span class="copa-card-link">Ver detalhes →</span>
+          </div>
+        </a>
+
+        <!-- 1950 -->
+        <a href="copas/1950.html" class="copa-card fade-in" id="card-1950" data-year="1950" data-host="Brasil" data-champion="Uruguai" data-colors="#009739,#fedd00,#002776,#ffffff">
+          <div class="copa-card-header">
+            <div class="copa-card-year">1950</div>
+            <div class="copa-card-host"><img src="https://flagcdn.com/br.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Brasil</div>
+          </div>
+          <div class="copa-card-body">
+            <div class="copa-card-info">
+              <div class="copa-card-flag-bg"><img src="https://flagcdn.com/uy.svg" alt="" style="width:120px;height:auto;opacity:0.12;"></div>
+              <div class="copa-card-cultural" title="Mate">
+                <span class="cultural-icon cultural-steam">🧉</span>
+                <span class="cultural-name">Mate</span>
+              </div>
+              <div class="copa-card-info-row">
+                <span class="icon">🏆</span>
+                <span class="label">Campeão</span>
+                <span class="value"><img src="https://flagcdn.com/uy.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Uruguai</span>
+              </div>
+              <div class="copa-card-info-row">
+                <span class="icon">🥈</span>
+                <span class="label">Vice</span>
+                <span class="value"><img src="https://flagcdn.com/br.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Brasil</span>
+              </div>
+            </div>
+          </div>
+          <div class="copa-card-footer">
+            <span class="copa-card-link">Ver detalhes →</span>
+          </div>
+        </a>
+
+        <!-- 1954 -->
+        <a href="copas/1954.html" class="copa-card fade-in" id="card-1954" data-year="1954" data-host="Suíça" data-champion="Alemanha Ocidental" data-colors="#d52b1e,#ffffff">
+          <div class="copa-card-header">
+            <div class="copa-card-year">1954</div>
+            <div class="copa-card-host">🇨🇭 Suíça</div>
+          </div>
+          <div class="copa-card-body">
+            <div class="copa-card-info">
+              <div class="copa-card-flag-bg"><img src="https://flagcdn.com/de.svg" alt="" style="width:120px;height:auto;opacity:0.12;"></div>
+              <div class="copa-card-cultural" title="Cerveja">
+                <span class="cultural-icon cultural-clink">🍺</span>
+                <span class="cultural-name">Cerveja</span>
+              </div>
+              <div class="copa-card-info-row">
+                <span class="icon">🏆</span>
+                <span class="label">Campeão</span>
+                <span class="value"><img src="https://flagcdn.com/de.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Alemanha Ocidental</span>
+              </div>
+              <div class="copa-card-info-row">
+                <span class="icon">🥈</span>
+                <span class="label">Vice</span>
+                <span class="value"><img src="https://flagcdn.com/hu.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Hungria</span>
+              </div>
+            </div>
+          </div>
+          <div class="copa-card-footer">
+            <span class="copa-card-link">Ver detalhes →</span>
+          </div>
+        </a>
+
+        <!-- 1958 -->
+        <a href="copas/1958.html" class="copa-card fade-in" id="card-1958" data-year="1958" data-host="Suécia" data-champion="Brasil" data-colors="#006aa7,#fecc02">
+          <div class="copa-card-header">
+            <div class="copa-card-year">1958</div>
+            <div class="copa-card-host"><img src="https://flagcdn.com/se.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Suécia</div>
+          </div>
+          <div class="copa-card-body">
+            <div class="copa-card-info">
+              <div class="copa-card-flag-bg"><img src="https://flagcdn.com/br.svg" alt="" style="width:120px;height:auto;opacity:0.12;"></div>
+              <div class="copa-card-cultural" title="Carnaval">
+                <span class="cultural-icon cultural-sparkle">🎭</span>
+                <span class="cultural-name">Carnaval</span>
+              </div>
+              <div class="copa-card-info-row">
+                <span class="icon">🏆</span>
+                <span class="label">Campeão</span>
+                <span class="value"><img src="https://flagcdn.com/br.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Brasil</span>
+              </div>
+              <div class="copa-card-info-row">
+                <span class="icon">🥈</span>
+                <span class="label">Vice</span>
+                <span class="value"><img src="https://flagcdn.com/se.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Suécia</span>
+              </div>
+            </div>
+          </div>
+          <div class="copa-card-footer">
+            <span class="copa-card-link">Ver detalhes →</span>
+          </div>
+        </a>
+
+        <!-- 1962 -->
+        <a href="copas/1962.html" class="copa-card fade-in" id="card-1962" data-year="1962" data-host="Chile" data-champion="Brasil" data-colors="#d52b1e,#ffffff,#0039a6">
+          <div class="copa-card-header">
+            <div class="copa-card-year">1962</div>
+            <div class="copa-card-host">🇨🇱 Chile</div>
+          </div>
+          <div class="copa-card-body">
+            <div class="copa-card-info">
+              <div class="copa-card-flag-bg"><img src="https://flagcdn.com/br.svg" alt="" style="width:120px;height:auto;opacity:0.12;"></div>
+              <div class="copa-card-cultural" title="Maracas">
+                <span class="cultural-icon cultural-shake">🪇</span>
+                <span class="cultural-name">Maracas</span>
+              </div>
+              <div class="copa-card-info-row">
+                <span class="icon">🏆</span>
+                <span class="label">Campeão</span>
+                <span class="value"><img src="https://flagcdn.com/br.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Brasil</span>
+              </div>
+              <div class="copa-card-info-row">
+                <span class="icon">🥈</span>
+                <span class="label">Vice</span>
+                <span class="value"><img src="https://flagcdn.com/cz.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Tchecoslováquia</span>
+              </div>
+            </div>
+          </div>
+          <div class="copa-card-footer">
+            <span class="copa-card-link">Ver detalhes →</span>
+          </div>
+        </a>
+
+        <!-- 1966 -->
+        <a href="copas/1966.html" class="copa-card fade-in" id="card-1966" data-year="1966" data-host="Inglaterra" data-champion="Inglaterra" data-colors="#cf142b,#ffffff,#012169">
+          <div class="copa-card-header">
+            <div class="copa-card-year">1966</div>
+            <div class="copa-card-host"><img src="https://flagcdn.com/gb-eng.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Inglaterra</div>
+          </div>
+          <div class="copa-card-body">
+            <div class="copa-card-info">
+              <div class="copa-card-flag-bg"><img src="https://flagcdn.com/gb-eng.svg" alt="" style="width:120px;height:auto;opacity:0.12;"></div>
+              <div class="copa-card-cultural" title="Telefone">
+                <span class="cultural-icon cultural-ring">☎️</span>
+                <span class="cultural-name">Telefone</span>
+              </div>
+              <div class="copa-card-info-row">
+                <span class="icon">🏆</span>
+                <span class="label">Campeão</span>
+                <span class="value"><img src="https://flagcdn.com/gb-eng.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Inglaterra</span>
+              </div>
+              <div class="copa-card-info-row">
+                <span class="icon">🥈</span>
+                <span class="label">Vice</span>
+                <span class="value"><img src="https://flagcdn.com/de.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Alemanha Ocidental</span>
+              </div>
+            </div>
+          </div>
+          <div class="copa-card-footer">
+            <span class="copa-card-link">Ver detalhes →</span>
+          </div>
+        </a>
+
+        <!-- 1970 -->
+        <a href="copas/1970.html" class="copa-card fade-in" id="card-1970" data-year="1970" data-host="México" data-champion="Brasil" data-colors="#006847,#ffffff,#ce1126">
+          <div class="copa-card-header">
+            <div class="copa-card-year">1970</div>
+            <div class="copa-card-host"><img src="https://flagcdn.com/mx.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> México</div>
+          </div>
+          <div class="copa-card-body">
+            <div class="copa-card-info">
+              <div class="copa-card-flag-bg"><img src="https://flagcdn.com/br.svg" alt="" style="width:120px;height:auto;opacity:0.12;"></div>
+              <div class="copa-card-cultural" title="Pelé">
+                <span class="cultural-icon cultural-bounce">⚽</span>
+                <span class="cultural-name">Pelé</span>
+              </div>
+              <div class="copa-card-info-row">
+                <span class="icon">🏆</span>
+                <span class="label">Campeão</span>
+                <span class="value"><img src="https://flagcdn.com/br.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Brasil</span>
+              </div>
+              <div class="copa-card-info-row">
+                <span class="icon">🥈</span>
+                <span class="label">Vice</span>
+                <span class="value"><img src="https://flagcdn.com/it.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Itália</span>
+              </div>
+            </div>
+          </div>
+          <div class="copa-card-footer">
+            <span class="copa-card-link">Ver detalhes →</span>
+          </div>
+        </a>
+
+        <!-- 1974 -->
+        <a href="copas/1974.html" class="copa-card fade-in" id="card-1974" data-year="1974" data-host="Alemanha Ocidental" data-champion="Alemanha Ocidental" data-colors="#000000,#dd0000,#ffcc00">
+          <div class="copa-card-header">
+            <div class="copa-card-year">1974</div>
+            <div class="copa-card-host"><img src="https://flagcdn.com/de.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Alemanha Ocidental</div>
+          </div>
+          <div class="copa-card-body">
+            <div class="copa-card-info">
+              <div class="copa-card-flag-bg"><img src="https://flagcdn.com/de.svg" alt="" style="width:120px;height:auto;opacity:0.12;"></div>
+              <div class="copa-card-cultural" title="Pretzel">
+                <span class="cultural-icon cultural-wobble">🥨</span>
+                <span class="cultural-name">Pretzel</span>
+              </div>
+              <div class="copa-card-info-row">
+                <span class="icon">🏆</span>
+                <span class="label">Campeão</span>
+                <span class="value"><img src="https://flagcdn.com/de.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Alemanha Ocidental</span>
+              </div>
+              <div class="copa-card-info-row">
+                <span class="icon">🥈</span>
+                <span class="label">Vice</span>
+                <span class="value"><img src="https://flagcdn.com/nl.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Holanda</span>
+              </div>
+            </div>
+          </div>
+          <div class="copa-card-footer">
+            <span class="copa-card-link">Ver detalhes →</span>
+          </div>
+        </a>
+
+        <!-- 1978 -->
+        <a href="copas/1978.html" class="copa-card fade-in" id="card-1978" data-year="1978" data-host="Argentina" data-champion="Argentina" data-colors="#74acdf,#ffffff,#f6b40e">
+          <div class="copa-card-header">
+            <div class="copa-card-year">1978</div>
+            <div class="copa-card-host"><img src="https://flagcdn.com/ar.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Argentina</div>
+          </div>
+          <div class="copa-card-body">
+            <div class="copa-card-info">
+              <div class="copa-card-flag-bg"><img src="https://flagcdn.com/ar.svg" alt="" style="width:120px;height:auto;opacity:0.12;"></div>
+              <div class="copa-card-cultural" title="Tango">
+                <span class="cultural-icon cultural-dance">💃</span>
+                <span class="cultural-name">Tango</span>
+              </div>
+              <div class="copa-card-info-row">
+                <span class="icon">🏆</span>
+                <span class="label">Campeão</span>
+                <span class="value"><img src="https://flagcdn.com/ar.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Argentina</span>
+              </div>
+              <div class="copa-card-info-row">
+                <span class="icon">🥈</span>
+                <span class="label">Vice</span>
+                <span class="value"><img src="https://flagcdn.com/nl.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Holanda</span>
+              </div>
+            </div>
+          </div>
+          <div class="copa-card-footer">
+            <span class="copa-card-link">Ver detalhes →</span>
+          </div>
+        </a>
+
+        <!-- 1982 -->
+        <a href="copas/1982.html" class="copa-card fade-in" id="card-1982" data-year="1982" data-host="Espanha" data-champion="Itália" data-colors="#c60b1e,#ffc400,#c60b1e">
+          <div class="copa-card-header">
+            <div class="copa-card-year">1982</div>
+            <div class="copa-card-host"><img src="https://flagcdn.com/es.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Espanha</div>
+          </div>
+          <div class="copa-card-body">
+            <div class="copa-card-info">
+              <div class="copa-card-flag-bg"><img src="https://flagcdn.com/it.svg" alt="" style="width:120px;height:auto;opacity:0.12;"></div>
+              <div class="copa-card-cultural" title="Espresso">
+                <span class="cultural-icon cultural-steam">☕</span>
+                <span class="cultural-name">Espresso</span>
+              </div>
+              <div class="copa-card-info-row">
+                <span class="icon">🏆</span>
+                <span class="label">Campeão</span>
+                <span class="value"><img src="https://flagcdn.com/it.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Itália</span>
+              </div>
+              <div class="copa-card-info-row">
+                <span class="icon">🥈</span>
+                <span class="label">Vice</span>
+                <span class="value"><img src="https://flagcdn.com/de.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Alemanha Ocidental</span>
+              </div>
+            </div>
+          </div>
+          <div class="copa-card-footer">
+            <span class="copa-card-link">Ver detalhes →</span>
+          </div>
+        </a>
+
+        <!-- 1986 -->
+        <a href="copas/1986.html" class="copa-card fade-in" id="card-1986" data-year="1986" data-host="México" data-champion="Argentina" data-colors="#006847,#ffffff,#ce1126">
+          <div class="copa-card-header">
+            <div class="copa-card-year">1986</div>
+            <div class="copa-card-host"><img src="https://flagcdn.com/mx.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> México</div>
+          </div>
+          <div class="copa-card-body">
+            <div class="copa-card-info">
+              <div class="copa-card-flag-bg"><img src="https://flagcdn.com/ar.svg" alt="" style="width:120px;height:auto;opacity:0.12;"></div>
+              <div class="copa-card-cultural" title="Mate">
+                <span class="cultural-icon cultural-steam">🧉</span>
+                <span class="cultural-name">Mate</span>
+              </div>
+              <div class="copa-card-info-row">
+                <span class="icon">🏆</span>
+                <span class="label">Campeão</span>
+                <span class="value"><img src="https://flagcdn.com/ar.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Argentina</span>
+              </div>
+              <div class="copa-card-info-row">
+                <span class="icon">🥈</span>
+                <span class="label">Vice</span>
+                <span class="value"><img src="https://flagcdn.com/de.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Alemanha Ocidental</span>
+              </div>
+            </div>
+          </div>
+          <div class="copa-card-footer">
+            <span class="copa-card-link">Ver detalhes →</span>
+          </div>
+        </a>
+
+        <!-- 1990 -->
+        <a href="copas/1990.html" class="copa-card fade-in" id="card-1990" data-year="1990" data-host="Itália" data-champion="Alemanha Ocidental" data-colors="#008C45,#cd212a,#f4f5f0">
+          <div class="copa-card-header">
+            <div class="copa-card-year">1990</div>
+            <div class="copa-card-host"><img src="https://flagcdn.com/it.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Itália</div>
+          </div>
+          <div class="copa-card-body">
+            <div class="copa-card-info">
+              <div class="copa-card-flag-bg"><img src="https://flagcdn.com/de.svg" alt="" style="width:120px;height:auto;opacity:0.12;"></div>
+              <div class="copa-card-cultural" title="Brandemburgo">
+                <span class="cultural-icon cultural-glow">🏛️</span>
+                <span class="cultural-name">Brandemburgo</span>
+              </div>
+              <div class="copa-card-info-row">
+                <span class="icon">🏆</span>
+                <span class="label">Campeão</span>
+                <span class="value"><img src="https://flagcdn.com/de.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Alemanha Ocidental</span>
+              </div>
+              <div class="copa-card-info-row">
+                <span class="icon">🥈</span>
+                <span class="label">Vice</span>
+                <span class="value"><img src="https://flagcdn.com/ar.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Argentina</span>
+              </div>
+            </div>
+          </div>
+          <div class="copa-card-footer">
+            <span class="copa-card-link">Ver detalhes →</span>
+          </div>
+        </a>
+
+        <!-- 1994 -->
+        <a href="copas/1994.html" class="copa-card fade-in" id="card-1994" data-year="1994" data-host="Estados Unidos" data-champion="Brasil" data-colors="#b31942,#ffffff#0a3161">
+          <div class="copa-card-header">
+            <div class="copa-card-year">1994</div>
+            <div class="copa-card-host"><img src="https://flagcdn.com/us.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Estados Unidos</div>
+          </div>
+          <div class="copa-card-body">
+            <div class="copa-card-info">
+              <div class="copa-card-flag-bg"><img src="https://flagcdn.com/br.svg" alt="" style="width:120px;height:auto;opacity:0.12;"></div>
+              <div class="copa-card-cultural" title="Cristo">
+                <span class="cultural-icon cultural-glow">✝️</span>
+                <span class="cultural-name">Cristo</span>
+              </div>
+              <div class="copa-card-info-row">
+                <span class="icon">🏆</span>
+                <span class="label">Campeão</span>
+                <span class="value"><img src="https://flagcdn.com/br.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Brasil</span>
+              </div>
+              <div class="copa-card-info-row">
+                <span class="icon">🥈</span>
+                <span class="label">Vice</span>
+                <span class="value"><img src="https://flagcdn.com/it.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Itália</span>
+              </div>
+            </div>
+          </div>
+          <div class="copa-card-footer">
+            <span class="copa-card-link">Ver detalhes →</span>
+          </div>
+        </a>
+
+        <!-- 1998 -->
+        <a href="copas/1998.html" class="copa-card fade-in" id="card-1998" data-year="1998" data-host="França" data-champion="França" data-colors="#002395,#ffffff,#ed2939">
+          <div class="copa-card-header">
+            <div class="copa-card-year">1998</div>
+            <div class="copa-card-host"><img src="https://flagcdn.com/fr.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> França</div>
+          </div>
+          <div class="copa-card-body">
+            <div class="copa-card-info">
+              <div class="copa-card-flag-bg"><img src="https://flagcdn.com/fr.svg" alt="" style="width:120px;height:auto;opacity:0.12;"></div>
+              <div class="copa-card-cultural" title="Eiffel">
+                <span class="cultural-icon cultural-sparkle">🗼</span>
+                <span class="cultural-name">Eiffel</span>
+              </div>
+              <div class="copa-card-info-row">
+                <span class="icon">🏆</span>
+                <span class="label">Campeão</span>
+                <span class="value"><img src="https://flagcdn.com/fr.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> França</span>
+              </div>
+              <div class="copa-card-info-row">
+                <span class="icon">🥈</span>
+                <span class="label">Vice</span>
+                <span class="value"><img src="https://flagcdn.com/br.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Brasil</span>
+              </div>
+            </div>
+          </div>
+          <div class="copa-card-footer">
+            <span class="copa-card-link">Ver detalhes →</span>
+          </div>
+        </a>
+
+        <!-- 2002 -->
+        <a href="copas/2002.html" class="copa-card fade-in" id="card-2002" data-year="2002" data-host="Coreia do Sul" data-champion="Brasil" data-colors="#ffffff,#c60c30,#003478">
+          <div class="copa-card-header">
+            <div class="copa-card-year">2002</div>
+            <div class="copa-card-host">🇰🇷<img src="https://flagcdn.com/jp.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Coreia do Sul / Japão</div>
+          </div>
+          <div class="copa-card-body">
+            <div class="copa-card-info">
+              <div class="copa-card-flag-bg"><img src="https://flagcdn.com/br.svg" alt="" style="width:120px;height:auto;opacity:0.12;"></div>
+              <div class="copa-card-cultural" title="Capoeira">
+                <span class="cultural-icon cultural-spin">🥋</span>
+                <span class="cultural-name">Capoeira</span>
+              </div>
+              <div class="copa-card-info-row">
+                <span class="icon">🏆</span>
+                <span class="label">Campeão</span>
+                <span class="value"><img src="https://flagcdn.com/br.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Brasil</span>
+              </div>
+              <div class="copa-card-info-row">
+                <span class="icon">🥈</span>
+                <span class="label">Vice</span>
+                <span class="value"><img src="https://flagcdn.com/de.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Alemanha</span>
+              </div>
+            </div>
+          </div>
+          <div class="copa-card-footer">
+            <span class="copa-card-link">Ver detalhes →</span>
+          </div>
+        </a>
+
+        <!-- 2006 -->
+        <a href="copas/2006.html" class="copa-card fade-in" id="card-2006" data-year="2006" data-host="Alemanha" data-champion="Itália" data-colors="#000000,#dd0000,#ffcc00">
+          <div class="copa-card-header">
+            <div class="copa-card-year">2006</div>
+            <div class="copa-card-host"><img src="https://flagcdn.com/de.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Alemanha</div>
+          </div>
+          <div class="copa-card-body">
+            <div class="copa-card-info">
+              <div class="copa-card-flag-bg"><img src="https://flagcdn.com/it.svg" alt="" style="width:120px;height:auto;opacity:0.12;"></div>
+              <div class="copa-card-cultural" title="Vespa">
+                <span class="cultural-icon cultural-drive">🛵</span>
+                <span class="cultural-name">Vespa</span>
+              </div>
+              <div class="copa-card-info-row">
+                <span class="icon">🏆</span>
+                <span class="label">Campeão</span>
+                <span class="value"><img src="https://flagcdn.com/it.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Itália</span>
+              </div>
+              <div class="copa-card-info-row">
+                <span class="icon">🥈</span>
+                <span class="label">Vice</span>
+                <span class="value"><img src="https://flagcdn.com/fr.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> França</span>
+              </div>
+            </div>
+          </div>
+          <div class="copa-card-footer">
+            <span class="copa-card-link">Ver detalhes →</span>
+          </div>
+        </a>
+
+        <!-- 2010 -->
+        <a href="copas/2010.html" class="copa-card fade-in" id="card-2010" data-year="2010" data-host="África do Sul" data-champion="Espanha" data-colors="#007749,#de3831,#002395,#000000,#ffb81c">
+          <div class="copa-card-header">
+            <div class="copa-card-year">2010</div>
+            <div class="copa-card-host"><img src="https://flagcdn.com/za.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> África do Sul</div>
+          </div>
+          <div class="copa-card-body">
+            <div class="copa-card-info">
+              <div class="copa-card-flag-bg"><img src="https://flagcdn.com/es.svg" alt="" style="width:120px;height:auto;opacity:0.12;"></div>
+              <div class="copa-card-cultural" title="Flamenco">
+                <span class="cultural-icon cultural-fan">🪭</span>
+                <span class="cultural-name">Flamenco</span>
+              </div>
+              <div class="copa-card-info-row">
+                <span class="icon">🏆</span>
+                <span class="label">Campeão</span>
+                <span class="value"><img src="https://flagcdn.com/es.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Espanha</span>
+              </div>
+              <div class="copa-card-info-row">
+                <span class="icon">🥈</span>
+                <span class="label">Vice</span>
+                <span class="value"><img src="https://flagcdn.com/nl.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Holanda</span>
+              </div>
+            </div>
+          </div>
+          <div class="copa-card-footer">
+            <span class="copa-card-link">Ver detalhes →</span>
+          </div>
+        </a>
+
+        <!-- 2014 -->
+        <a href="copas/2014.html" class="copa-card fade-in" id="card-2014" data-year="2014" data-host="Brasil" data-champion="Alemanha" data-colors="#009739,#fedd00,#002776">
+          <div class="copa-card-header">
+            <div class="copa-card-year">2014</div>
+            <div class="copa-card-host"><img src="https://flagcdn.com/br.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Brasil</div>
+          </div>
+          <div class="copa-card-body">
+            <div class="copa-card-info">
+              <div class="copa-card-flag-bg"><img src="https://flagcdn.com/de.svg" alt="" style="width:120px;height:auto;opacity:0.12;"></div>
+              <div class="copa-card-cultural" title="Autobahn">
+                <span class="cultural-icon cultural-drive">🚗</span>
+                <span class="cultural-name">Autobahn</span>
+              </div>
+              <div class="copa-card-info-row">
+                <span class="icon">🏆</span>
+                <span class="label">Campeão</span>
+                <span class="value"><img src="https://flagcdn.com/de.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Alemanha</span>
+              </div>
+              <div class="copa-card-info-row">
+                <span class="icon">🥈</span>
+                <span class="label">Vice</span>
+                <span class="value"><img src="https://flagcdn.com/ar.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Argentina</span>
+              </div>
+            </div>
+          </div>
+          <div class="copa-card-footer">
+            <span class="copa-card-link">Ver detalhes →</span>
+          </div>
+        </a>
+
+        <!-- 2018 -->
+        <a href="copas/2018.html" class="copa-card fade-in" id="card-2018" data-year="2018" data-host="Rússia" data-champion="França" data-colors="#ffffff,#0039a6,#d52b1e">
+          <div class="copa-card-header">
+            <div class="copa-card-year">2018</div>
+            <div class="copa-card-host"><img src="https://flagcdn.com/ru.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Rússia</div>
+          </div>
+          <div class="copa-card-body">
+            <div class="copa-card-info">
+              <div class="copa-card-flag-bg"><img src="https://flagcdn.com/fr.svg" alt="" style="width:120px;height:auto;opacity:0.12;"></div>
+              <div class="copa-card-cultural" title="Croissant">
+                <span class="cultural-icon cultural-wobble">🥐</span>
+                <span class="cultural-name">Croissant</span>
+              </div>
+              <div class="copa-card-info-row">
+                <span class="icon">🏆</span>
+                <span class="label">Campeão</span>
+                <span class="value"><img src="https://flagcdn.com/fr.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> França</span>
+              </div>
+              <div class="copa-card-info-row">
+                <span class="icon">🥈</span>
+                <span class="label">Vice</span>
+                <span class="value"><img src="https://flagcdn.com/hr.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Croácia</span>
+              </div>
+            </div>
+          </div>
+          <div class="copa-card-footer">
+            <span class="copa-card-link">Ver detalhes →</span>
+          </div>
+        </a>
+
+        <!-- 2022 -->
+        <a href="copas/2022.html" class="copa-card fade-in" id="card-2022" data-year="2022" data-host="Qatar" data-champion="Argentina">
+          <div class="copa-card-header">
+            <div class="copa-card-year">2022</div>
+            <div class="copa-card-host"><img src="https://flagcdn.com/qa.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Qatar</div>
+          </div>
+          <div class="copa-card-body">
+            <div class="copa-card-info">
+              <div class="copa-card-flag-bg"><img src="https://flagcdn.com/ar.svg" alt="" style="width:120px;height:auto;opacity:0.12;"></div>
+              <div class="copa-card-cultural" title="Messi">
+                <span class="cultural-icon cultural-bounce">⚽</span>
+                <span class="cultural-name">Messi</span>
+              </div>
+              <div class="copa-card-info-row">
+                <span class="icon">🏆</span>
+                <span class="label">Campeão</span>
+                <span class="value"><img src="https://flagcdn.com/ar.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Argentina</span>
+              </div>
+              <div class="copa-card-info-row">
+                <span class="icon">🥈</span>
+                <span class="label">Vice</span>
+                <span class="value"><img src="https://flagcdn.com/fr.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> França</span>
+              </div>
+            </div>
+          </div>
+          <div class="copa-card-footer">
+            <span class="copa-card-link">Ver detalhes →</span>
+          </div>
+        </a>
+
+        <!-- 2026 -->
+        <a href="copas/2026.html" class="copa-card fade-in" id="card-2026" data-year="2026" data-host="EUA/México/Canadá" data-champion="Espanha">
+          <div class="copa-card-header">
+            <div class="copa-card-year">2026</div>
+            <div class="copa-card-host">🇺🇸🇲🇽<img src="https://flagcdn.com/ca.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> EUA / México / Canadá</div>
+          </div>
+          <div class="copa-card-body">
+            <div class="copa-card-info">
+              <div class="copa-card-flag-bg"><img src="https://flagcdn.com/es.svg" alt="" style="width:120px;height:auto;opacity:0.12;"></div>
+              <div class="copa-card-cultural" title="Guitarra">
+                <span class="cultural-icon cultural-strum">🎸</span>
+                <span class="cultural-name">Guitarra</span>
+              </div>
+              <div class="copa-card-info-row">
+                <span class="icon">🏆</span>
+                <span class="label">Campeão</span>
+                <span class="value"><img src="https://flagcdn.com/es.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Espanha</span>
+              </div>
+              <div class="copa-card-info-row">
+                <span class="icon">🥈</span>
+                <span class="label">Vice</span>
+                <span class="value"><img src="https://flagcdn.com/ar.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Argentina</span>
+              </div>
+            </div>
+          </div>
+          <div class="copa-card-footer">
+            <span class="copa-card-link">Ver detalhes →</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CHAMPIONS SECTION -->
+  <section class="section history-section" id="champions">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge">Maiores Campeões</div>
+        <h2>Nações Mais Bem-Sucedidas</h2>
+        <p>Conheça os países que mais conquistaram o título de campeão do mundo.</p>
+      </div>
+
+      <div class="info-cards">
+
+        <div class="info-card fade-in" style="border-left-color: #f5a623;">
+          <h3><img src="https://flagcdn.com/br.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Brasil — 5 Títulos</h3>
+          <p>O maior campeão da história. Pentacampeão em 1958, 1962, 1970, 1994 e 2002.</p>
+        </div>
+
+        <div class="info-card fade-in" style="border-left-color: #333;">
+          <h3><img src="https://flagcdn.com/de.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Alemanha — 4 Títulos</h3>
+          <p>Campeã em 1954, 1974, 1990 e 2014. Uma das nações mais consistentes do futebol mundial.</p>
+        </div>
+
+        <div class="info-card fade-in" style="border-left-color: #009246;">
+          <h3><img src="https://flagcdn.com/it.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Itália — 4 Títulos</h3>
+          <p>Tricampeã em 1934, 1938 e 1982, e novamente em 2006. Tradição e elegância no futebol.</p>
+        </div>
+
+        <div class="info-card fade-in" style="border-left-color: #75aadb;">
+          <h3><img src="https://flagcdn.com/ar.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Argentina — 3 Títulos</h3>
+          <p>Campeã em 1978, 1986 e 2022. A era Maradona e a era Messi consagraram a Albiceleste.</p>
+        </div>
+
+        <div class="info-card fade-in" style="border-left-color: #002395;">
+          <h3><img src="https://flagcdn.com/fr.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> França — 2 Títulos</h3>
+          <p>Campeã em 1998 e 2018. Les Bleus conquistaram o mundo com geração de ouro.</p>
+        </div>
+
+        <div class="info-card fade-in" style="border-left-color: #0038a8;">
+          <h3><img src="https://flagcdn.com/uy.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> Uruguai — 2 Títulos</h3>
+          <p>O primeiro campeão em 1930 e campeão novamente na icônica "Maracanazo" de 1950.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- REGRAS SECTION -->
+  <section class="section history-section" id="regras">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge">Regras</div>
+        <h2>Evolução das Regras do Futebol</h2>
+        <p>Do futebol medieval caótico às regras modernas que regulam o maior esporte do mundo.</p>
+      </div>
+
+      <div class="timeline">
+
+        <!-- 1863 -->
+        <div class="timeline-item" style="animation-delay: 0.1s">
+          <div class="timeline-content">
+            <div class="timeline-year">1863</div>
+            <div class="timeline-host">📜 Regras Originais</div>
+            <div class="timeline-champion">Primeiras "Laws of the Game"</div>
+            <p style="margin-top:8px;font-size:0.9rem;opacity:0.9;">A Football Association (FA) fundada por Ebenezer Cobb Morley em Londres publica as primeiras 14 regras do futebol. Proibia usar mãos e braços (exceto o goleiro), definia o tamanho do campo e o peso da bola.</p>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <!-- 1875 -->
+        <div class="timeline-item" style="animation-delay: 0.15s">
+          <div class="timeline-content">
+            <div class="timeline-year">1875</div>
+            <div class="timeline-host">🥅 Padronização do Gol</div>
+            <div class="timeline-champion">Traves de 2,44m (8 pés)</div>
+            <p style="margin-top:8px;font-size:0.9rem;opacity:0.9;">As traves verticais foram padronizadas em 8 pés (2,44 metros de altura). A barra horizontal foi adicionada em 1882, definindo o formato do gol como conhecemos hoje.</p>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <!-- 1891 -->
+        <div class="timeline-item" style="animation-delay: 0.2s">
+          <div class="timeline-content">
+            <div class="timeline-year">1891</div>
+            <div class="timeline-host">🥅 Rede de Gol e Pênalti</div>
+            <div class="timeline-champion">Invenções Revolucionárias</div>
+            <p style="margin-top:8px;font-size:0.9rem;opacity:0.9;">A rede de gol foi instalada pela primeira vez, eliminando a necessidade de juízes verificarem se a bola entrava. O pênalti foi criado como punição para faltas dentro da área.</p>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <!-- 1925 -->
+        <div class="timeline-item" style="animation-delay: 0.25s">
+          <div class="timeline-content">
+            <div class="timeline-year">1925</div>
+            <div class="timeline-host">🚩 Revolução do Impedimento</div>
+            <div class="timeline-champion">Reforma que mudou o futebol</div>
+            <p style="margin-top:8px;font-size:0.9rem;opacity:0.9;">A regra do impedimento foi alterada: passou a haver impedimento quando havia menos de 3 jogadores defensores entre o atacante e o gol (antes eram 2). Isso revolucionou o jogo ofensivo.</p>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <!-- 1930 -->
+        <div class="timeline-item" style="animation-delay: 0.3s">
+          <div class="timeline-content">
+            <div class="timeline-year">1930</div>
+            <div class="timeline-host">🏆 Primeira Copa do Mundo</div>
+            <div class="timeline-champion">Regras da FIFA aplicadas</div>
+            <p style="margin-top:8px;font-size:0.9rem;opacity:0.9;">Na primeira Copa do Mundo no Uruguai, 13 seleções disputaram o torneio. As regras da FIFA foram padronizadas, incluindo tempo de 90 minutos, duas etapas de 45 min e substituições não permitidas.</p>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <!-- 1938 -->
+        <div class="timeline-item" style="animation-delay: 0.35s">
+          <div class="timeline-content">
+            <div class="timeline-year">1938</div>
+            <div class="timeline-host">⏱️ Tempo Extra</div>
+            <div class="timeline-champion">Decisão por prorrogação</div>
+            <p style="margin-top:8px;font-size:0.9rem;opacity:0.9;">Foi estabelecido que jogos empatados nas fases eliminatórias teriam prorrogação de 30 minutos (duas etapas de 15 min). Se persistisse o empate, haveria disputa de pênaltis (a partir de 1970).</p>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <!-- 1958 -->
+        <div class="timeline-item" style="animation-delay: 0.4s">
+          <div class="timeline-content">
+            <div class="timeline-year">1958</div>
+            <div class="timeline-host">🔄 Substituições Permitidas</div>
+            <div class="timeline-champion">Mudança no regulamento</div>
+            <p style="margin-top:8px;font-size:0.9rem;opacity:0.9;">As substituições foram oficialmente permitidas pela FIFA. Inicialmente, apenas 1 substituição por jogo. Em 1970, passou para 2, e em 1995 para 3 por equipe.</p>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <!-- 1970 -->
+        <div class="timeline-item" style="animation-delay: 0.45s">
+          <div class="timeline-content">
+            <div class="timeline-year">1970</div>
+            <div class="timeline-host">🟥🟨 Cartões de Amarelo e Vermelho</div>
+            <div class="timeline-champion">Ken Aston cria o sistema</div>
+            <p style="margin-top:8px;font-size:0.9rem;opacity:0.9;">O árbitro inglês Ken Aston inventou os cartões amarelo e vermelho, inspirado nos semáforos de trânsito. A ideia surgiu após o caótico jogo Argentina x Inglaterra em 1966.</p>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <!-- 1970 -->
+        <div class="timeline-item" style="animation-delay: 0.5s">
+          <div class="timeline-content">
+            <div class="timeline-year">1970</div>
+            <div class="timeline-host">⚽ Bola Telstar</div>
+            <div class="timeline-champion">Formato hexagonal/pentagonal</div>
+            <p style="margin-top:8px;font-size:0.9rem;opacity:0.9;">A Adidas apresentou a Telstar, primeira bola com formato de 32 painéis (18 hexagonais e 12 pentagonais), criando o design icônico do futebol.</p>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <!-- 1990 -->
+        <div class="timeline-item" style="animation-delay: 0.55s">
+          <div class="timeline-content">
+            <div class="timeline-year">1990</div>
+            <div class="timeline-host">🚩 Nova Reforma do Impedimento</div>
+            <div class="timeline-champion">Jogo mais ofensivo</div>
+            <p style="margin-top:8px;font-size:0.9rem;opacity:0.9;">A FIFA alterou novamente a regra: jogadores na mesma linha que o último zagueiro não são mais impedidos. Isso aumentou significativamente os gols e o futebol ofensivo.</p>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <!-- 1992 -->
+        <div class="timeline-item" style="animation-delay: 0.6s">
+          <div class="timeline-content">
+            <div class="timeline-year">1992</div>
+            <div class="timeline-host">🧤 Regra do Goleiro</div>
+            <div class="timeline-champion">Toque com as mãos restrito</div>
+            <p style="margin-top:8px;font-size:0.9rem;opacity:0.9;">O goleiro passou a não poder pegar a bola com as mãos quando ela foi tocada deliberadamente por um companheiro de equipe. Isso evitava zagueiros passando para o goleiro.</p>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <!-- 1995 -->
+        <div class="timeline-item" style="animation-delay: 0.65s">
+          <div class="timeline-content">
+            <div class="timeline-year">1995</div>
+            <div class="timeline-host">🔄 3 Substituições</div>
+            <div class="timeline-champion">Nova regra de substituições</div>
+            <p style="margin-top:8px;font-size:0.9rem;opacity:0.9;">A FIFA aumentou o limite de substituições para 3 por jogo, visando estratégias táticas e reduzindo fadiga dos jogadores.</p>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <!-- 2005 -->
+        <div class="timeline-item" style="animation-delay: 0.7s">
+          <div class="timeline-content">
+            <div class="timeline-year">2005</div>
+            <div class="timeline-host">🚩 Impedimento "Na Mesma Linha"</div>
+            <div class="timeline-champion">Jogo ainda mais ofensivo</div>
+            <p style="margin-top:8px;font-size:0.9rem;opacity:0.9;">A regra foi refinada: jogadores na mesma linha que o penúltimo defensor NÃO são mais impedidos. Isso favoreceu ainda mais o ataque.</p>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <!-- 2012 -->
+        <div class="timeline-item" style="animation-delay: 0.75s">
+          <div class="timeline-content">
+            <div class="timeline-year">2012</div>
+            <div class="timeline-host">🟥 Dupla Sanção</div>
+            <div class="timeline-champion">Amarelo + Vermelho direto</div>
+            <p style="margin-top:8px;font-size:0.9rem;opacity:0.9;">A FIFA padronizou a regra de que faltas graves que impedem uma oportunidade clara de gol resultam em cartão amarelo + vermelho (dupla punição).</p>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <!-- 2014 -->
+        <div class="timeline-item" style="animation-delay: 0.8s">
+          <div class="timeline-content">
+            <div class="timeline-year">2014</div>
+            <div class="timeline-host">📹 Linha de Técnico</div>
+            <div class="timeline-champion">Área técnica delimitada</div>
+            <p style="margin-top:8px;font-size:0.9rem;opacity:0.9;">Os treinadores passaram a ficar confinados em uma área técnica delimitada, evitando que invadissem o campo para contestar decisões arbitrais.</p>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <!-- 2018 -->
+        <div class="timeline-item" style="animation-delay: 0.85s">
+          <div class="timeline-content">
+            <div class="timeline-year">2018</div>
+            <div class="timeline-host">📹 VAR (Video Assistant Referee)</div>
+            <div class="timeline-champion">Revolução tecnológica</div>
+            <p style="margin-top:8px;font-size:0.9rem;opacity:0.9;">O VAR foi implementado pela primeira vez em uma Copa do Mundo. Pode revisar: gols, pênaltis, cartões vermelhos e identificação errada de jogadores.</p>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <!-- 2021 -->
+        <div class="timeline-item" style="animation-delay: 0.9s">
+          <div class="timeline-content">
+            <div class="timeline-year">2021</div>
+            <div class="timeline-host">🔄 5 Substituições</div>
+            <div class="timeline-champion">Medida temporária permanente</div>
+            <p style="margin-top:8px;font-size:0.9rem;opacity:0.9;">A FIFA permitiu 5 substituições por jogo (em 3 momentos), medida inicialmente temporária durante a pandemia que se tornou permanente.</p>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <!-- 2022 -->
+        <div class="timeline-item" style="animation-delay: 0.95s">
+          <div class="timeline-content">
+            <div class="timeline-year">2022</div>
+            <div class="timeline-host">⏱️ Tempo Extra com 6ª Substituição</div>
+            <div class="timeline-champion">Mudança no Catar</div>
+            <p style="margin-top:8px;font-size:0.9rem;opacity:0.9;">Na Copa do Catar, times que fizeram suas 5 substituições regulamentares puderam fazer mais 1 no tempo extra. O VAR também monitorou lances de impedimento com tecnologia de rastreamento semiautomático.</p>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <!-- 2023 -->
+        <div class="timeline-item" style="animation-delay: 1.0s">
+          <div class="timeline-content">
+            <div class="timeline-year">2023</div>
+            <div class="timeline-host">📹 Semi-Automated Offside</div>
+            <div class="timeline-champion">Impedimento por IA</div>
+            <p style="margin-top:8px;font-size:0.9rem;opacity:0.9;">A FIFA implementou o sistema semiautomático de impedimento, usando 12 câmeras de rastreamento de dados e inteligência artificial para detectar posições dos jogadores em tempo real.</p>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <!-- 2026 -->
+        <div class="timeline-item" style="animation-delay: 1.05s">
+          <div class="timeline-content">
+            <div class="timeline-year">2026</div>
+            <div class="timeline-host">🏆 Novas Regras para a Copa</div>
+            <div class="timeline-champion">48 Seleções, 12 Grupos</div>
+            <p style="margin-top:8px;font-size:0.9rem;opacity:0.9;">A Copa 2026 terá 48 seleções divididas em 12 grupos de 4. Principais mudanças: VAR completo, impedimento semi-automático, 5 substituições obrigatórias, tempo extra com possibilidade de 6ª troca, e revisão de lances de pênaltis.</p>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+      </div>
+
+      <!-- RESUMO DAS REGRAS -->
+      <div class="info-cards" style="margin-top:60px;">
+
+        <div class="info-card fade-in" style="border-left-color: #c8102e;">
+          <h3>🚩 Regra do Impedimento</h3>
+          <p><strong>1863:</strong> Impedido se entre bola e gol. <strong>1925:</strong> 3 defensores necessários. <strong>1990:</strong> Na mesma linha não é impedido. <strong>2023:</strong> Sistema semiautomático por IA.</p>
+        </div>
+
+        <div class="info-card fade-in" style="border-left-color: #f5a623;">
+          <h3>🟥 Cartões Disciplinares</h3>
+          <p><strong>1970:</strong> Ken Aston cria amarelo e vermelho. <strong>1991:</strong> Dupla sanção (amarelo + vermelho). <strong>2018:</strong> VAR pode revisar cartões vermelhos.</p>
+        </div>
+
+        <div class="info-card fade-in" style="border-left-color: #0066b2;">
+          <h3>🔄 Substituições</h3>
+          <p><strong>1958:</strong> 1 substituição por jogo. <strong>1970:</strong> 2 substituições. <strong>1995:</strong> 3 substituições. <strong>2021:</strong> 5 substituições. <strong>2022:</strong> 6ª no tempo extra.</p>
+        </div>
+
+        <div class="info-card fade-in" style="border-left-color: #009739;">
+          <h3>📹 Tecnologia no Futebol</h3>
+          <p><strong>2014:</strong> Linha de técnico. <strong>2018:</strong> VAR implementado. <strong>2022:</strong> Impedimento semiautomático. <strong>2026:</strong> Câmeras de rastreamento em tempo real.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CURIOSIDADES SECTION -->
+  <section class="section history-section" id="curiosidades">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge">Curiosidades</div>
+        <h2>A História do Futebol</h2>
+        <p>Descubra como surgiu o esporte mais amado do mundo, desde as civilizações antigas até as regras modernas.</p>
+      </div>
+
+      <div class="info-cards">
+
+        <div class="info-card fade-in" style="border-left-color: #1a472a;">
+          <h3>⚽ Origem do Futebol Moderno</h3>
+          <p>O futebol moderno nasceu em 1863, na Inglaterra, quando Ebenezer Cobb Morley fundou a Football Association em Londres. As primeiras regras foram estabelecidas na Escola de Rugby, e o primeiro jogo oficial sob essas regras ocorreu em 1872 entre Inglaterra e Escócia.</p>
+        </div>
+
+        <div class="info-card fade-in" style="border-left-color: #8B4513;">
+          <h3>⚽ Criação da Bola de Futebol</h3>
+          <p>As primeiras bolas eram feitas de couro estopado e tinham formato irregular. Em 1872, a FIFA padronizou o tamanho e o peso. O famoso formato hexagonal e pentagonal (bola Telstar) foi introduzido na Copa de 1970 no México, tornando-se o ícone que conhecemos hoje.</p>
+        </div>
+
+        <div class="info-card fade-in" style="border-left-color: #003399;">
+          <h3>📜 Nascimento das Regras</h3>
+          <p>As "Laws of the Game" foram escritas por Ebenezer Cobb Morley em 1863. O impedimento, a regra mais polêmica, surgiu para impedir que jogadores ficassem apenas esperando na área adversária. O cartão amarelo e vermelho foi criado por Ken Aston em 1970, inspirado nos semáforos de trânsito.</p>
+        </div>
+
+        <div class="info-card fade-in" style="border-left-color: #c8102e;">
+          <h3>🏆 A Primeira Copa do Mundo</h3>
+          <p>A primeira Copa do Mundo foi idealizada por Jules Rimet, presidente da FIFA, e realizada no Uruguai em 1930. Participaram apenas 13 seleções, e o Uruguai venceu a Argentina na final por 4 a 2, tornando-se o primeiro campeão mundial.</p>
+        </div>
+
+        <div class="info-card fade-in" style="border-left-color: #0066b2;">
+          <h3>🕰️ Evolução do Impedimento</h3>
+          <p>A regra do impedimento já foi alterada mais de 10 vezes desde 1863. Inicialmente, um jogador estava impedido se estivesse entre o goleiro e a bola adversária. Em 1990, a FIFA mudou para permitir que jogadores estivessem na mesma linha que o último zagueiro, tornando o jogo mais ofensivo.</p>
+        </div>
+
+        <div class="info-card fade-in" style="border-left-color: #f5a623;">
+          <h3>🟥 Cartões Coloridos</h3>
+          <p>Os cartões amarelo e vermelho foram introduzidos na Copa de 1970 no México, pelo árbitro inglês Ken Aston. A ideia surgiu após um jogo caótico entre Argentina e Inglaterra em 1966, quando o juiz não conseguiu se comunicar com os jogadores devido à barreira do idioma.</p>
+        </div>
+
+        <div class="info-card fade-in" style="border-left-color: #2d5016;">
+          <h3>🏛️ O Futebol nas Civilizações Antigas</h3>
+          <p>Muito antes das regras inglesas, civilizações antigas já jogavam com bolas. Os maias tinham o "Pok-ta-Pok" (3000 a.C.), onde a bola não podia tocar o chão e jogadores usavam quadris, cotovelos e pés. Na China, o "Cuju" (século II a.C.) era tão popular que o imperador Han Wudi chegou a jogar. Os romanos tinham o "Harpastum", um jogo violento onde 12 jogadores lutavam por uma bola de couro recheada.</p>
+        </div>
+
+        <div class="info-card fade-in" style="border-left-color: #8B4513;">
+          <h3>⚔️ Caos Medieval: O Futebol sem Regras</h3>
+          <p>Na Inglaterra medieval, o "mob football" era caos total: times de 50-100 pessoas por lado, sem campo definido, sem limite de jogadores e com regras mínimas. A bola era feita de bexiga de porco estufada e o objetivo era levá-la até uma marca distante (às vezes 2-3 km!). Os jogos duravam horas e frequentemente resultavam em ferimentos graves. Em 1314, o rei Eduardo II baniu o jogo, temendo que distraísse os homens do treino com arco e flecha!</p>
+        </div>
+
+        <div class="info-card fade-in" style="border-left-color: #654321;">
+          <h3>🐖 Bolas de Bexiga de Porco</h3>
+          <p>Por quase 2000 anos, as bolas de futebol foram feitas de bexigas de porco infladas. O problema: elas tinham formato irregular e mudavam de tamanho com a umidade! Quando chovia, a bexiga enchia e ficava maior; no sol, murcharia. Em 1855, Charles Goodyear (mesmo inventor do pneu vulcanizado) criou a primeira bola de borracha vulcanizada. Mas o formato hexagonal/pentagonal só veio em 1970 com a Telstar da Adidas.</p>
+        </div>
+
+        <div class="info-card fade-in" style="border-left-color: #993333;">
+          <h3>😱 Jogadores Medievais Profissionais</h3>
+          <p>No século XV, alguns jogadores de mob football já eram "profissionais"! Os barões e senhores feudais contratavam os melhores jogadores para representar suas vilas. O registro mais antigo é de 1421, quando o Duque de Albany pagou "John de Garvill" para jogar pela vila de Haddington. Esses jogadores viajavam de vila em vila, desafiando times locais e ganhando apostas. Era o primeiro "transfer market" da história!</p>
+        </div>
+
+        <div class="info-card fade-in" style="border-left-color: #006400;">
+          <h3>🧱 Trave sem Gol: A Evolução do Arco</h3>
+          <p>Nos primeiros jogos organizados (século XVI), não havia traves nem rede - apenas dois posts de madeira com uma corda no meio. O gol era tão alto quanto a corda permitia. As traves verticais só foram padronizadas em 1875 (8 pés / 2.44m) e a横 barra horizontal em 1882. A rede de gol só apareceu em 1891, e antes disso, os árbitros precisavam verificar se a bola passava entre os posts!</p>
+        </div>
+
+        <div class="info-card fade-in" style="border-left-color: #4a0080;">
+          <h3>🎯 Sem Impedimento: O Jogo Injusto</h3>
+          <p>Na Inglaterra vitoriana, sem a regra do impedimento, os times colocavam 7-8 "forwards" (atacantes) apenas na área adversária, esperando o cruzamento. Era um jogo sem equilíbrio - os zagueiros e meio-campistas mal existiam. A regra original (1863) dizia que um jogador estava impedido se estivesse entre a bola e o gol adversário. A reforma de 1925 (3 jogadores entre bola e gol) revolucionou o futebol, criando o jogo moderno.</p>
+        </div>
+
+        <div class="info-card fade-in" style="border-left-color: #8B0000;">
+          <h3>🤕 Cirurgiões no Campo: O Futebol Perigoso</h3>
+          <p>No século XIX, antes do futebol se profissionalizar, os times mantinham cirurgiões presentes nos jogos! Os ferimentos eram comuns: ossos fraturados, narizes quebrados, dentes arrancados. Em 1863, a Football Association proibiu explicitamente "chutar abaixo do joelho" e "empurrar com as mãos", mostrando o quão violento era o jogo. Mesmo assim, em 1872, o jogo Inglaterra x Escócia teve 3 jogadores hospitalizados!</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h3>🏆 Copa do Mundo de Futebol</h3>
+        <p>Um site dedicado a preservar e celebrar a história completa da Copa do Mundo FIFA, desde 1930 até os dias atuais. Explore cada edição, descubra campeões e reviva os maiores momentos do futebol mundial.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Edições</h4>
+        <ul>
+          <li><a href="copas/1930.html">Copa 1930</a></li>
+          <li><a href="copas/1950.html">Copa 1950</a></li>
+          <li><a href="copas/1970.html">Copa 1970</a></li>
+          <li><a href="copas/1994.html">Copa 1994</a></li>
+          <li><a href="copas/2002.html">Copa 2002</a></li>
+          <li><a href="copas/2014.html">Copa 2014</a></li>
+          <li><a href="copas/2022.html">Copa 2022</a></li>
+          <li><a href="copas/2026.html">Copa 2026</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#hero">Início</a></li>
+          <li><a href="#timeline">Timeline</a></li>
+          <li><a href="#copas-grid">Todas as Copas</a></li>
+          <li><a href="#champions">Maiores Campeões</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Copa do Mundo de Futebol. Projeto educacional sobre a história do futebol mundial.</p>
+    </div>
+  </footer>
+
+  <!-- SCROLL TO TOP -->
+  <button class="scroll-top" id="scrollTop">↑</button>
+
+  <!-- SIDE MENU -->
+  <button class="side-menu-toggle" id="sideMenuToggle">☰</button>
+  <nav class="side-menu" id="sideMenu">
+    <div class="side-menu-header">
+      <span class="side-menu-title">Menu</span>
+      <button class="side-menu-close" id="sideMenuClose">✕</button>
+    </div>
+    <div class="side-menu-links">
+      <a href="#hero" class="side-menu-link active">🏠 Menu Inicial</a>
+      <a href="#timeline" class="side-menu-link">📅 Linha do Tempo</a>
+      <a href="#copas-grid" class="side-menu-link">🏆 Todas as Copas</a>
+      <a href="#champions" class="side-menu-link">🥇 Maiores Campeões</a>
+      <a href="#regras" class="side-menu-link">📜 Evolução das Regras</a>
+      <a href="#curiosidades" class="side-menu-link">💡 Curiosidades</a>
+      <div class="side-menu-divider"></div>
+      <div class="side-menu-section-title">Copas do Mundo</div>
+      <a href="#card-1930" class="side-menu-link copa-link" data-year="1930"><img src="https://flagcdn.com/uy.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> 1930 — Uruguai</a>
+      <a href="#card-1934" class="side-menu-link copa-link" data-year="1934"><img src="https://flagcdn.com/it.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> 1934 — Itália</a>
+      <a href="#card-1938" class="side-menu-link copa-link" data-year="1938"><img src="https://flagcdn.com/it.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> 1938 — França</a>
+      <a href="#card-1950" class="side-menu-link copa-link" data-year="1950"><img src="https://flagcdn.com/uy.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> 1950 — Brasil</a>
+      <a href="#card-1954" class="side-menu-link copa-link" data-year="1954"><img src="https://flagcdn.com/de.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> 1954 — Suíça</a>
+      <a href="#card-1958" class="side-menu-link copa-link" data-year="1958"><img src="https://flagcdn.com/br.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> 1958 — Suécia</a>
+      <a href="#card-1962" class="side-menu-link copa-link" data-year="1962"><img src="https://flagcdn.com/br.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> 1962 — Chile</a>
+      <a href="#card-1966" class="side-menu-link copa-link" data-year="1966"><img src="https://flagcdn.com/gb-eng.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> 1966 — Inglaterra</a>
+      <a href="#card-1970" class="side-menu-link copa-link" data-year="1970"><img src="https://flagcdn.com/br.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> 1970 — México</a>
+      <a href="#card-1974" class="side-menu-link copa-link" data-year="1974"><img src="https://flagcdn.com/de.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> 1974 — Alemanha</a>
+      <a href="#card-1978" class="side-menu-link copa-link" data-year="1978"><img src="https://flagcdn.com/ar.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> 1978 — Argentina</a>
+      <a href="#card-1982" class="side-menu-link copa-link" data-year="1982"><img src="https://flagcdn.com/it.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> 1982 — Espanha</a>
+      <a href="#card-1986" class="side-menu-link copa-link" data-year="1986"><img src="https://flagcdn.com/ar.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> 1986 — México</a>
+      <a href="#card-1990" class="side-menu-link copa-link" data-year="1990"><img src="https://flagcdn.com/de.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> 1990 — Itália</a>
+      <a href="#card-1994" class="side-menu-link copa-link" data-year="1994"><img src="https://flagcdn.com/br.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> 1994 — EUA</a>
+      <a href="#card-1998" class="side-menu-link copa-link" data-year="1998"><img src="https://flagcdn.com/fr.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> 1998 — França</a>
+      <a href="#card-2002" class="side-menu-link copa-link" data-year="2002"><img src="https://flagcdn.com/br.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> 2002 — Coreia/Japão</a>
+      <a href="#card-2006" class="side-menu-link copa-link" data-year="2006"><img src="https://flagcdn.com/it.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> 2006 — Alemanha</a>
+      <a href="#card-2010" class="side-menu-link copa-link" data-year="2010"><img src="https://flagcdn.com/es.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> 2010 — África do Sul</a>
+      <a href="#card-2014" class="side-menu-link copa-link" data-year="2014"><img src="https://flagcdn.com/de.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> 2014 — Brasil</a>
+      <a href="#card-2018" class="side-menu-link copa-link" data-year="2018"><img src="https://flagcdn.com/fr.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> 2018 — Rússia</a>
+      <a href="#card-2022" class="side-menu-link copa-link" data-year="2022"><img src="https://flagcdn.com/ar.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> 2022 — Qatar</a>
+      <a href="#card-2026" class="side-menu-link copa-link" data-year="2026"><img src="https://flagcdn.com/es.svg" alt="" class="flag-icon" width="20" style="height:auto;vertical-align:middle;"> 2026 — EUA/Mex/Can</a>
+    </div>
+  </nav>
+
+  <script src="js/script.js"></script>
+  <script>
+// ========== NAVBAR SCROLL EFFECT ==========
+const navbar = document.querySelector('.navbar');
+const scrollTop = document.querySelector('.scroll-top');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+
+  if (scrollTop) {
+    if (window.scrollY > 500) {
+      scrollTop.classList.add('visible');
+    } else {
+      scrollTop.classList.remove('visible');
+    }
+  }
+});
+
+if (scrollTop) {
+  scrollTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+// ========== MOBILE MENU ==========
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+const mobileOverlay = document.querySelector('.mobile-overlay');
+
+if (hamburger) {
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+    if (mobileOverlay) mobileOverlay.classList.toggle('active');
+    document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+  });
+}
+
+if (mobileOverlay) {
+  mobileOverlay.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    navLinks.classList.remove('active');
+    mobileOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+  });
+}
+
+// Mobile dropdown toggle
+document.querySelectorAll('.nav-links .nav-item > a').forEach(link => {
+  link.addEventListener('click', (e) => {
+    if (window.innerWidth <= 768) {
+      const parent = link.parentElement;
+      const dropdown = parent.querySelector('.nav-dropdown');
+      if (dropdown) {
+        e.preventDefault();
+        parent.classList.toggle('open');
+      }
+    }
+  });
+});
+
+// Close menu when clicking a direct link (no dropdown)
+document.querySelectorAll('.nav-dropdown a').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    navLinks.classList.remove('active');
+    if (mobileOverlay) mobileOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+  });
+});
+
+// ========== SCROLL ANIMATIONS ==========
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.fade-in, .timeline-item').forEach(el => {
+  observer.observe(el);
+});
+
+// ========== SEARCH FUNCTIONALITY ==========
+const searchInput = document.querySelector('.search-input');
+if (searchInput) {
+  searchInput.addEventListener('input', (e) => {
+    const term = e.target.value.toLowerCase();
+    const cards = document.querySelectorAll('.copa-card');
+    cards.forEach(card => {
+      const text = card.textContent.toLowerCase();
+      card.style.display = text.includes(term) ? '' : 'none';
+    });
+  });
+}
+
+// ========== FILTER BUTTONS ==========
+const filterButtons = document.querySelectorAll('.filter-btn');
+filterButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterButtons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const filter = btn.dataset.filter;
+    const cards = document.querySelectorAll('.copa-card');
+
+    cards.forEach(card => {
+      if (filter === 'all') {
+        card.style.display = '';
+      } else {
+        const year = parseInt(card.dataset.year);
+        const decade = parseInt(filter);
+        if (year >= decade && year < decade + 10) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      }
+    });
+  });
+});
+
+// ========== HERO PARTICLES ==========
+function createParticles() {
+  const container = document.querySelector('.hero-particles');
+  if (!container) return;
+
+  for (let i = 0; i < 30; i++) {
+    const particle = document.createElement('div');
+    particle.classList.add('particle');
+    particle.style.left = Math.random() * 100 + '%';
+    particle.style.animationDelay = Math.random() * 6 + 's';
+    particle.style.animationDuration = (4 + Math.random() * 4) + 's';
+    particle.style.width = particle.style.height = (2 + Math.random() * 4) + 'px';
+    container.appendChild(particle);
+  }
+}
+
+createParticles();
+
+// ========== COUNTER ANIMATION ==========
+function animateCounters() {
+  const counters = document.querySelectorAll('.hero-stat .number');
+  counters.forEach(counter => {
+    const target = parseInt(counter.dataset.target);
+    const duration = 2000;
+    const step = target / (duration / 16);
+    let current = 0;
+
+    const timer = setInterval(() => {
+      current += step;
+      if (current >= target) {
+        counter.textContent = target;
+        clearInterval(timer);
+      } else {
+        counter.textContent = Math.floor(current);
+      }
+    }, 16);
+  });
+}
+
+// Animate counters when hero is visible
+const heroSection = document.querySelector('.hero');
+if (heroSection) {
+  const heroObserver = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+      animateCounters();
+      heroObserver.unobserve(heroSection);
+    }
+  }, { threshold: 0.5 });
+  heroObserver.observe(heroSection);
+}
+
+// ========== ACTIVE NAV LINK ==========
+function setActiveNavLink() {
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+      link.classList.add('active');
+    }
+  });
+}
+
+setActiveNavLink();
+
+// ========== BACK BUTTON FOR DETAIL PAGES ==========
+// Static back-to-menu button is now in HTML (copas/*.html)
+// No JavaScript dynamic button needed
+
+// ========== MATCH TABS ==========
+function initMatchTabs() {
+  const tabs = document.querySelectorAll('.match-tab');
+  const contents = document.querySelectorAll('.match-tab-content');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.tab;
+
+      tabs.forEach(t => t.classList.remove('active'));
+      contents.forEach(c => c.classList.remove('active'));
+
+      tab.classList.add('active');
+      document.getElementById(target).classList.add('active');
+    });
+  });
+}
+
+initMatchTabs();
+
+// ========== SIDE MENU ==========
+const sideMenuToggle = document.getElementById('sideMenuToggle');
+const sideMenu = document.getElementById('sideMenu');
+const sideMenuClose = document.getElementById('sideMenuClose');
+
+// Create overlay
+const sideMenuOverlay = document.createElement('div');
+sideMenuOverlay.className = 'side-menu-overlay';
+document.body.appendChild(sideMenuOverlay);
+
+function openSideMenu() {
+  sideMenu.classList.add('open');
+  sideMenuToggle.classList.add('hidden');
+  sideMenuOverlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeSideMenu() {
+  sideMenu.classList.remove('open');
+  sideMenuToggle.classList.remove('hidden');
+  sideMenuOverlay.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+if (sideMenuToggle) {
+  sideMenuToggle.addEventListener('click', openSideMenu);
+}
+
+if (sideMenuClose) {
+  sideMenuClose.addEventListener('click', closeSideMenu);
+}
+
+sideMenuOverlay.addEventListener('click', closeSideMenu);
+
+// Close side menu when clicking a link
+document.querySelectorAll('.side-menu-link').forEach(link => {
+  link.addEventListener('click', () => {
+    closeSideMenu();
+  });
+});
+
+// Scroll highlighting for side menu
+function updateSideMenuHighlight() {
+  const sections = ['hero', 'timeline', 'copas-grid', 'champions', 'curiosidades'];
+  const scrollPos = window.scrollY + 200;
+
+  let activeId = 'hero';
+
+  sections.forEach(id => {
+    const section = document.getElementById(id);
+    if (section && section.offsetTop <= scrollPos) {
+      activeId = id;
+    }
+  });
+
+  document.querySelectorAll('.side-menu-link').forEach(link => {
+    link.classList.remove('active');
+    const href = link.getAttribute('href');
+    if (href === '#' + activeId) {
+      link.classList.add('active');
+    }
+  });
+}
+
+window.addEventListener('scroll', updateSideMenuHighlight);
+updateSideMenuHighlight();
+
+// ========== CULTURAL ELEMENTS INTERACTION ==========
+document.querySelectorAll('.copa-card-cultural').forEach(el => {
+  el.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    const icon = el.querySelector('.cultural-icon');
+    const name = el.querySelector('.cultural-name');
+    
+    // Add pop animation
+    icon.style.animation = 'none';
+    icon.offsetHeight; // trigger reflow
+    icon.style.animation = 'pop 0.3s ease';
+    
+    // Show name briefly
+    name.style.opacity = '1';
+    name.style.transform = 'translateY(0)';
+    
+    setTimeout(() => {
+      name.style.opacity = '';
+      name.style.transform = '';
+    }, 1500);
+  });
+  
+  // Touch support for mobile
+  el.addEventListener('touchstart', (e) => {
+    const name = el.querySelector('.cultural-name');
+    name.style.opacity = '1';
+    name.style.transform = 'translateY(0)';
+    
+    setTimeout(() => {
+      name.style.opacity = '';
+      name.style.transform = '';
+    }, 2000);
+  }, { passive: true });
+});
+
+// ========== SCROLL TO CARD FROM SIDE MENU ==========
+document.querySelectorAll('.side-menu-link.copa-link').forEach(link => {
+  link.addEventListener('click', (e) => {
+    const href = link.getAttribute('href');
+    if (href && href.startsWith('#card-')) {
+      e.preventDefault();
+      const targetId = href.substring(1);
+      const targetCard = document.getElementById(targetId);
+      
+      if (targetCard) {
+        closeSideMenu();
+        
+        // Scroll to card
+        setTimeout(() => {
+          const cardRect = targetCard.getBoundingClientRect();
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          const targetY = scrollTop + cardRect.top - 100;
+          
+          window.scrollTo({
+            top: targetY,
+            behavior: 'smooth'
+          });
+          
+          // Highlight effect
+          targetCard.classList.add('card-highlighted');
+          setTimeout(() => {
+            targetCard.classList.remove('card-highlighted');
+          }, 2000);
+        }, 300);
+      }
+    }
+  });
+});
+  </script>
+</body>
+</html>
